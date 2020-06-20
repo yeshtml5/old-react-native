@@ -16,10 +16,17 @@ import {
   StatusBar,
 } from 'react-native';
 
-import {Header, Colors} from 'react-native/Libraries/NewAppScreen';
+import {
+  Header,
+  LearnMoreLinks,
+  Colors,
+  DebugInstructions,
+  ReloadInstructions,
+} from 'react-native/Libraries/NewAppScreen';
+//screen
+import Main from 'screens/main/index.tsx';
 
-export interface Props {}
-const App: React.FC<Props> = props => {
+const App: () => React$Node = () => {
   return (
     <>
       <StatusBar barStyle="dark-content" />
@@ -28,9 +35,20 @@ const App: React.FC<Props> = props => {
           contentInsetAdjustmentBehavior="automatic"
           style={styles.scrollView}>
           <Header />
-
+          {global.HermesInternal == null ? null : (
+            <View style={styles.engine}>
+              <Text style={styles.footer}>Engine: Hermes</Text>
+            </View>
+          )}
           <View style={styles.body}>
-            <Text>view</Text>
+            <Main />
+            <View style={styles.sectionContainer}>
+              <Text style={styles.sectionTitle}>Hello World</Text>
+              <Text style={styles.sectionDescription}>
+                Edit <Text style={styles.highlight}>App.js</Text> to change this
+                screen and then come back to see your edits.
+              </Text>
+            </View>
           </View>
         </ScrollView>
       </SafeAreaView>

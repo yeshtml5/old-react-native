@@ -14,7 +14,8 @@
     "paths": {
       "*": ["src/*"],
       "tests": ["tests/*"],
-      "@components/*": ["src/components/*"]
+      "@components/*": ["src/components/*"],
+      "@screens": ["src/screens/*"]
     }
   },
   "exclude": [
