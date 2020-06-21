@@ -1,15 +1,18 @@
 import React, {useEffect} from 'react';
-import {Button, View, Text, Image, StyleSheet, Alert} from 'react-native';
+import {Button, View, Text, Image, StyleSheet} from 'react-native';
 //style
 import Color from 'contexts/color.ts';
 //type
+
 export interface Props {}
 
 const Main: React.FC<Props> = () => {
   //--------------------------------------------------------
+  //context
   const buttonEventHdr = event => {
-    alert('onClick');
+    alert(event);
   };
+  useEffect(() => {}, []);
   //--------------------------------------------------------
   return (
     <View style={styles.container}>
@@ -20,7 +23,7 @@ const Main: React.FC<Props> = () => {
       {/* 버튼 */}
       <View style={styles.button}>
         <Button
-          title="Left button"
+          title="Left buttonq"
           onPress={event => {
             buttonEventHdr(event);
           }}
