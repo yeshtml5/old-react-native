@@ -36,7 +36,7 @@ const App: React.FC<Props> = ({navigation}) => {
         <SafeAreaView>
           <View
             style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-            <Text>Home111 Screen</Text>
+            <Text>Develop</Text>
             <Button
               title="Go to Details"
               onPress={() => navigation.navigate('Details')}
