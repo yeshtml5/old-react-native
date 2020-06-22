@@ -20,36 +20,31 @@ import {
 //contexts
 import Color from 'contexts/color.ts';
 //screen
-import {NavigationContainer} from '@react-navigation/native';
-import {createStackNavigator} from '@react-navigation/stack';
 import Main from 'screens/main/index.tsx';
 //type
 export type Props = {};
 
-const App: React.FC<Props> = ({navigation}) => {
+const App: React.FC<Props> = () => {
   //--------------------------------------------------------
   return (
-    <NavigationContainer>
-      <View style={styles.container}>
-        <StatusBar barStyle="dark-content" />
+    <View style={styles.container}>
+      <StatusBar barStyle="dark-content" />
 
-        <SafeAreaView>
-          <View
-            style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-            <Text>Home111 Screen</Text>
-            <Button
-              title="Go to Details"
-              onPress={() => navigation.navigate('Details')}
-            />
-          </View>
-          <ScrollView
-            contentInsetAdjustmentBehavior="automatic"
-            style={styles.scrollView}>
-            {/* <Main /> */}
-          </ScrollView>
-        </SafeAreaView>
-      </View>
-    </NavigationContainer>
+      <SafeAreaView>
+        <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+          <Text>Home111 Screen</Text>
+          <Button
+            title="Go to Details"
+            onPress={() => navigation.navigate('Details')}
+          />
+        </View>
+        <ScrollView
+          contentInsetAdjustmentBehavior="automatic"
+          style={styles.scrollView}>
+          {/* <Main /> */}
+        </ScrollView>
+      </SafeAreaView>
+    </View>
   );
 };
 export default App;
