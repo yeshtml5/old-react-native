@@ -6,74 +6,55 @@
  * @flow strict-local
  */
 
-import React from 'react';
+import * as React from 'react';
 
-import {
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  View,
-  Text,
-  Button,
-  StatusBar,
-} from 'react-native';
+import {StyleSheet, View, Text} from 'react-native';
 //contexts
 import Color from 'contexts/color.ts';
-//screen
+//navigation
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
-import Main from 'screens/main/index.tsx';
-//type
-export type Props = {};
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
-const App: React.FC<Props> = ({navigation}) => {
-  //--------------------------------------------------------
-  return (
-    <NavigationContainer>
-      <View style={styles.container}>
-        <StatusBar barStyle="dark-content" />
-
-        <SafeAreaView>
-          <View
-            style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-            <Text>Develop</Text>
-            <Button
-              title="Go to Details"
-              onPress={() => navigation.navigate('Details')}
-            />
-          </View>
-          <ScrollView
-            contentInsetAdjustmentBehavior="automatic"
-            style={styles.scrollView}>
-            {/* <Main /> */}
-          </ScrollView>
-        </SafeAreaView>
-      </View>
-    </NavigationContainer>
-  );
-};
-export default App;
-export function DetailsScreen({navigation}) {
+function HomeScreen() {
   return (
     <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-      <Text>Details Screen</Text>
-      <Button
-        title="Go to Details... again"
-        onPress={() => navigation.navigate('Details')}
-      />
+      <Text>Home Screen</Text>
     </View>
   );
 }
+
+function DetailsScreen() {
+  return (
+    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+      <Text>Details Screen</Text>
+    </View>
+  );
+}
+const Stack = createStackNavigator();
+const Tab = createBottomTabNavigator();
+function MyTabs() {
+  return (
+    <Tab.Navigator>
+      <Tab.Screen name="Home" component={HomeScreen} />
+      <Tab.Screen name="Settings" component={HomeScreen} />
+    </Tab.Navigator>
+  );
+}
+
+function App() {
+  return (
+    <NavigationContainer>
+      <MyTabs />
+    </NavigationContainer>
+  );
+}
+export default App;
 //--------------------------------------------------------
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: Color.white,
-    flexDirection: 'column',
-  },
-  scrollView: {
-    backgroundColor: Color.white,
   },
 });
