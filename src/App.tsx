@@ -1,23 +1,13 @@
 /**
  * Sample React Native App
+ * @reference
  * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
+ * https://reactnavigation.org/docs/drawer-navigator
  */
 
 import React from 'react';
 
-import {
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  View,
-  Text,
-  Button,
-  StatusBar,
-} from 'react-native';
-
+import {StyleSheet, View, Text, Button} from 'react-native';
 //contexts
 import Color from 'contexts/color.ts';
 //screen
@@ -25,77 +15,79 @@ import Main from 'screens/main/index.tsx';
 //navigation
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
-//type
+import {createDrawerNavigator} from '@react-navigation/drawer';
+import Icon from 'react-native-vector-icons/Ionicons';
+//import Icon from 'react-native-vector-icons/MaterialIcons';
+//screens
+import HomeScreen from 'screens/temp/HomeScreen.tsx';
+import DetatilsScreen from 'screens/temp/DetailsScreen.tsx';
+const Drawer = createDrawerNavigator();
+
+const HomeStack = createStackNavigator();
+const DetailsStack = createStackNavigator();
+
+const HomeStackScreen = ({navigation}) => {
+  return (
+    <HomeStack.Navigator>
+      <HomeStack.Screen
+        name="Home"
+        component={HomeScreen}
+        options={{
+          title: 'Overview',
+          headerStyle: {
+            backgroundColor: '#111',
+          },
+          headerTintColor: '#FFFFFF',
+          headerLeft: () => (
+            <Icon.Button
+              name="ios-menu"
+              size={25}
+              backgroundColor="#111"
+              onPress={() => {
+                navigation.openDrawer();
+              }}
+            />
+          ),
+        }}
+      />
+      <HomeStack.Screen name="Details" component={DetatilsScreen} />
+    </HomeStack.Navigator>
+  );
+};
+const DetailStackScreen = ({navigation}) => {
+  return (
+    <DetailsStack.Navigator>
+      <DetailsStack.Screen
+        name="Home"
+        component={HomeScreen}
+        options={{
+          headerStyle: {
+            backgroundColor: '#ff0000',
+          },
+          headerTintColor: '#FFFFFF',
+        }}
+      />
+      <DetailsStack.Screen name="Details" component={DetatilsScreen} />
+    </DetailsStack.Navigator>
+  );
+};
 export type Props = {};
-/**
- *
- */
-const HomeScreen = ({navigation}) => {
-  return (
-    <View style={styles.container}>
-      <Text>Home Screen</Text>
-      <Button
-        title="Go to details"
-        onPress={() => {
-          navigation.navigate('Details');
-        }}
-      />
-    </View>
-  );
-};
-/**
- *
- */
-const DetatilsScreen = ({navigation}) => {
-  return (
-    <View style={styles.detatils}>
-      <Text>DetatilsScreen</Text>
-      <Button
-        title="Go to details again.. again"
-        onPress={() => {
-          navigation.push('Details');
-        }}
-      />
-      <Button
-        title="Home"
-        onPress={() => {
-          navigation.navigate('Home');
-        }}
-      />
-      <Button
-        title="GoBack"
-        onPress={() => {
-          navigation.goBack();
-        }}
-      />
-    </View>
-  );
-};
-/**
- *
- */
-const Stack = createStackNavigator();
+
 const App: React.FC<Props> = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen
-          name="Home"
-          component={HomeScreen}
-          options={{
-            headerStyle: {
-              backgroundColor: '#ff0000',
-            },
-            headerTintColor: '#FFFFFF',
-          }}
-        />
-        <Stack.Screen name="Details" component={DetatilsScreen} />
-      </Stack.Navigator>
+      <Drawer.Navigator initialRouteName="Home">
+        <Drawer.Screen name="Home" component={HomeStackScreen} />
+        <Drawer.Screen name="DetailsSceen" component={DetailStackScreen} />
+      </Drawer.Navigator>
+      {/*  */}
     </NavigationContainer>
   );
 };
 export default App;
-
+/**
+ *
+ */
 const styles = StyleSheet.create({
   container: {
     flex: 1,
