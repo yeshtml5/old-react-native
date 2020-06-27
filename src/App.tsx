@@ -37,18 +37,20 @@ function MyTabs() {
   return (
     <Tab.Navigator>
       <Tab.Screen name="Home" component={HomeScreen} />
-      <Tab.Screen name="Settings" component={HomeScreen} />
+      <Tab.Screen name="Settings" component={DetailsScreen} />
+      <Tab.Screen name="Home1" component={HomeScreen} />
+      <Tab.Screen name="Settings2" component={DetailsScreen} />
     </Tab.Navigator>
   );
 }
 
-function App() {
+const App = () => {
   return (
     <NavigationContainer>
       <MyTabs />
     </NavigationContainer>
   );
-}
+};
 export default App;
 //--------------------------------------------------------
 const styles = StyleSheet.create({
