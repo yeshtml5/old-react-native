@@ -1,19 +1,18 @@
-import React, {useEffect} from 'react';
-import {Button, View, Text, Image, StyleSheet} from 'react-native';
+/**
+ *
+ */
+import React from 'react';
+import {Button, View, Text, Image, StyleSheet, Alert} from 'react-native';
+//navigation
+import {NavigationContainer} from '@react-navigation/native';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+//screens
+import {Home, HomeScreen, DetatilsScreen} from '@screens/';
 //style
 import Color from 'contexts/color.ts';
-//type
+const Tab = createBottomTabNavigator();
 
-export interface Props {}
-
-const Main: React.FC<Props> = () => {
-  //--------------------------------------------------------
-  //context
-  const buttonEventHdr = event => {
-    alert(event);
-  };
-  useEffect(() => {}, []);
-  //--------------------------------------------------------
+export default function Presenter() {
   return (
     <View style={styles.container}>
       {/* 타이틀 */}
@@ -25,7 +24,7 @@ const Main: React.FC<Props> = () => {
         <Button
           title="Left buttonq"
           onPress={event => {
-            buttonEventHdr(event);
+            Alert('test');
           }}
         />
       </View>
@@ -35,8 +34,8 @@ const Main: React.FC<Props> = () => {
       <Image style={styles.image} source={require('assets/images/img1.jpg')} />
     </View>
   );
-};
-export default Main;
+}
+
 //--------------------------------------------------------
 const styles = StyleSheet.create({
   container: {

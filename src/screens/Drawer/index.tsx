@@ -6,30 +6,32 @@
  */
 
 import React from 'react';
+
 import {StyleSheet, View, Text, Button} from 'react-native';
 //contexts
-import Color from 'contexts/color.ts';
-
-//navigation
+//screen
 import {NavigationContainer} from '@react-navigation/native';
 import {createDrawerNavigator} from '@react-navigation/drawer';
-//screen
-import {Home, Profile} from '@screens';
+
+import HomeScreen from '@screens/temp/HomeScreen';
+import DetatilsScreen from '@screens/temp/DetailsScreen';
+
+const DetailStackScreen = ({navigation}) => {
+  return <Text>dds</Text>;
+};
+export type Props = {};
+
 //create
 const Drawer = createDrawerNavigator();
 
-export type Props = {};
-
-const App: React.FC<Props> = () => {
+export const DrawerMenu: React.FC<Props> = () => {
   return (
-    // <Text>d</Text>
-    // <DrawerMenu />
     <NavigationContainer>
       <Drawer.Navigator initialRouteName="Home">
-        <Drawer.Screen name="Main" component={Home} />
-        <Drawer.Screen name="DetailsSceen" component={Profile} />
+        <Drawer.Screen name="Main1" component={DetailStackScreen} />
+        <Drawer.Screen name="DetailsSceen" component={DetailStackScreen} />
       </Drawer.Navigator>
+      {/*  */}
     </NavigationContainer>
   );
 };
-export default App;
