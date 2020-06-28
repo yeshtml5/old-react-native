@@ -8,7 +8,7 @@ import {StyleSheet, View, Text, Button} from 'react-native';
 const DetatilsScreen = ({navigation}) => {
   return (
     <View style={styles.detatils}>
-      <Text>DetatilsScreen</Text>
+      <Text>$$DetatilsScreen</Text>
       <Button
         title="Go to details again.. again"
         onPress={() => {
