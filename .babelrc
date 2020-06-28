@@ -5,6 +5,8 @@
       {
         "root": ["./src"],
         "alias": {
+          "@src": "./src",
+          "@screens": "./src/screens",
           "test": "./test",
           "underscore": "lodash"
         }
