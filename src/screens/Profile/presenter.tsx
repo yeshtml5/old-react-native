@@ -9,6 +9,7 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 //screens
 import {Home, HomeScreen, DetatilsScreen} from '@screens/';
 //style
+import Icon from 'react-native-vector-icons/FontAwesome';
 import Color from 'contexts/color.ts';
 const Tab = createBottomTabNavigator();
 
@@ -20,18 +21,6 @@ export default function Presenter() {
       {/* 이미지 */}
       <Image style={styles.image} source={require('assets/images/img1.jpg')} />
       {/* 버튼 */}
-      <View style={styles.button}>
-        <Button
-          title="Left buttonq"
-          onPress={event => {
-            Alert('test');
-          }}
-        />
-      </View>
-      {/* 이미지 */}
-      <Image style={styles.image} source={require('assets/images/img1.jpg')} />
-      {/* 이미지 */}
-      <Image style={styles.image} source={require('assets/images/img1.jpg')} />
     </View>
   );
 }
