@@ -2,80 +2,72 @@
  *
  */
 import React from 'react';
-import {View, Text} from 'react-native';
 //navigation
-import {NavigationContainer} from '@react-navigation/native';
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import {createStackNavigator} from '@react-navigation/stack';
+//components
+import BottomTab from '@components/common/BottomTab';
 //screens
-import {Home, Temp1, Profile} from '@screens';
-import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import {HOME, Template1, Template2, Profile} from '@screens';
+//icon
+import Icon from 'react-native-vector-icons/Ionicons';
 
-const Tab = createMaterialBottomTabNavigator();
+const HomeStack = createStackNavigator();
+const DetailsStack = createStackNavigator();
 
-export default function Presenter({navigation}) {
+/**
+ * @title dfdsfsd
+ * @desc  HOME
+ */
+const Home = () => {
+  return <BottomTab />;
+};
+export default Home;
+
+/**
+ *
+ */
+export const HomeStackScreen = ({navigation}) => {
   return (
-    <Tab.Navigator
-      initialRouteName="Feed"
-      activeColor="#e91e63"
-      style={{backgroundColor: 'tomato'}}>
-      <Tab.Screen
-        name="Feed"
-        component={Profile}
+    <HomeStack.Navigator
+      screenOptions={{
+        headerStyle: {
+          backgroundColor: '#FF6347',
+        },
+        headerTintColor: '#fff',
+        headerTitleStyle: {
+          fontWeight: 'bold',
+        },
+      }}>
+      <HomeStack.Screen
+        name="Home"
+        component={Template1}
         options={{
-          tabBarLabel: 'Home',
-          tabBarIcon: ({color}) => (
-            <MaterialCommunityIcons name="home" color={color} size={26} />
+          title: 'Overview111',
+          headerLeft: () => (
+            <Icon.Button
+              name="ios-menu"
+              size={25}
+              backgroundColor="#FF6347"
+              onPress={() => navigation.openDrawer()}
+            />
           ),
         }}
       />
-      <Tab.Screen
-        name="Notifications"
-        component={Profile}
+      <HomeStack.Screen
+        name="Home1"
+        component={Template1}
         options={{
-          tabBarLabel: 'Updates',
-          tabBarIcon: ({color}) => (
-            <MaterialCommunityIcons name="bell" color={color} size={26} />
+          title: 'Overview',
+          headerLeft: () => (
+            <Icon.Button
+              name="ios-menu"
+              size={25}
+              backgroundColor="#FF6347"
+              onPress={() => navigation.openDrawer()}
+            />
           ),
         }}
       />
-      <Tab.Screen
-        name="Profile"
-        component={Profile}
-        options={{
-          tabBarLabel: 'Profile',
-          tabBarIcon: ({color}) => (
-            <MaterialCommunityIcons name="account" color={color} size={26} />
-          ),
-        }}
-      />
-    </Tab.Navigator>
-    // <Tab.Navigator
-    //   initialRouteName="Feed"
-    //   tabBarOptions={{
-    //     activeTintColor: '#FF0000',
-    //   }}>
-    //   <Tab.Screen
-    //     name="Feed"
-    //     component={Profile}
-    //     options={{
-    //       tabBarLabel: 'Home',
-    //     }}
-    //   />
-    //   <Tab.Screen
-    //     name="Notifications"
-    //     component={Temp1}
-    //     options={{
-    //       tabBarLabel: 'Overview',
-    //     }}
-    //   />
-    //   <Tab.Screen
-    //     name="Profile"
-    //     component={Profile}
-    //     options={{
-    //       tabBarLabel: 'Profile',
-    //     }}
-    //   />
-    // </Tab.Navigator>
+    </HomeStack.Navigator>
   );
-}
+};
