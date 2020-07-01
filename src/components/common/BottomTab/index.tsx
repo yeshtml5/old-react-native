@@ -5,10 +5,8 @@ import React from 'react';
 import {View, Text, SafeAreaView} from 'react-native';
 //navigation
 import {createStackNavigator} from '@react-navigation/stack';
-//stack
-import {HomeStackScreen} from '@screens';
 //screens
-import {Template1, Template2, Profile} from '@screens';
+import {Template1, Template2, HomeStackScreen} from '@screens';
 import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 //icon
