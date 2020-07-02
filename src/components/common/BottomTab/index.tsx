@@ -1,8 +1,10 @@
 /**
  *
  */
-import React, {useEffect} from 'react';
+import React from 'react';
+import {View, Text, SafeAreaView} from 'react-native';
 //navigation
+import {createStackNavigator} from '@react-navigation/stack';
 //screens
 import {Template1, Template2, HomeStackScreen} from '@screens';
 import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
@@ -13,11 +15,10 @@ import Icon from 'react-native-vector-icons/Ionicons';
 const Tab = createMaterialBottomTabNavigator();
 
 const BottomTab = () => {
-  //---------------------------
   return (
     <Tab.Navigator
       initialRouteName="Home"
-      activeColor="#FFFFFF"
+      activeColor="#e91e63"
       style={{backgroundColor: 'tomato'}}>
       <Tab.Screen
         name="Home"

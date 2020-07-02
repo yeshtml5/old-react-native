@@ -40,7 +40,6 @@ export const HomeStackScreen = ({navigation}) => {
       }}>
       <HomeStack.Screen
         name="Home"
-        navigation={navigation}
         component={Template1}
         options={{
           title: 'Overview111',
@@ -58,7 +57,15 @@ export const HomeStackScreen = ({navigation}) => {
         name="Home1"
         component={Template1}
         options={{
-          title: 'PREV',
+          title: 'Overview',
+          headerLeft: () => (
+            <Icon.Button
+              name="ios-menu"
+              size={25}
+              backgroundColor="#FF6347"
+              onPress={() => navigation.openDrawer()}
+            />
+          ),
         }}
       />
     </HomeStack.Navigator>
