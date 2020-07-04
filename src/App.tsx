@@ -7,9 +7,10 @@
 
 import React from 'react';
 //navigation
-import {NavigationContainer} from '@react-navigation/native';
+import { NavigationContainer } from '@react-navigation/native';
 //screen
-import {DrawerScreen} from '@screens';
+import { DrawerScreen } from '@screens/index';
+//  import { DrawerScreen } from './screens/';
 
 export type Props = {};
 

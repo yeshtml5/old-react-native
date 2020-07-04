@@ -15,7 +15,7 @@
     ] /* Specify library files to be included in the compilation. */,
     "noImplicitReturns": true,
     "noImplicitThis": true,
-    "noImplicitAny": true,
+    "noImplicitAny": false,
     "strictNullChecks": true,
     "downlevelIteration": true,
     "allowJs": true /* Allow javascript files to be compiled. */,
@@ -36,10 +36,5 @@
     }
   },
   "include": ["**/*"],
-  "exclude": [
-    "node_modules",
-    "babel.config.js",
-    "metro.config.js",
-    "jest.config.js"
-  ]
+  "exclude": ["node_modules", "babel.config.js", "metro.config.js", "jest.config.js"]
 }
