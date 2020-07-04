@@ -2,7 +2,7 @@
  *
  */
 import React from 'react';
-import { StyleSheet } from 'react-native';
+import { Button, SafeAreaView, View, Text, StyleSheet } from 'react-native';
 //navigation
 import { createStackNavigator } from '@react-navigation/stack';
 //components
@@ -10,9 +10,10 @@ import BottomTab from '@components/common/BottomTab';
 //context
 import COLORS from 'contexts/color';
 //screens
-import { Overview, Template1 } from '@screens/index';
+import { Home, Profile } from '@screens/index';
 //icon
 import Icon from 'react-native-vector-icons/Ionicons';
+//import { Button } from 'react-native-paper';
 
 const Stack = createStackNavigator();
 const DetailsStack = createStackNavigator();
@@ -21,15 +22,27 @@ const DetailsStack = createStackNavigator();
  * @title dfdsfsd
  * @desc  HOME
  */
-const Home = () => {
-  return <BottomTab />;
+const Overview = ({ navigation }, ...props) => {
+  console.clear();
+  console.log(props);
+  return (
+    <SafeAreaView>
+      <Text>1111</Text>
+      <Button
+        onPress={() => navigation.navigate('Profile')}
+        title="Overview"
+        color="#841584"
+        accessibilityLabel="Learn more about this purple button"
+      />
+    </SafeAreaView>
+  );
 };
-export default Home;
+export default Overview;
 
 /**
  *
  */
-export const HomeStackScreen = ({ navigation }) => {
+export const OverviewStackScreen = ({ navigation }) => {
   return (
     <Stack.Navigator
       screenOptions={{
@@ -40,7 +53,7 @@ export const HomeStackScreen = ({ navigation }) => {
       <Stack.Screen
         name="Home"
         navigation={navigation}
-        component={Overview}
+        component={Template1}
         options={{
           title: 'HOME',
           headerLeft: () => (
@@ -54,20 +67,13 @@ export const HomeStackScreen = ({ navigation }) => {
           ),
         }}
       />
-      {/* <Stack.Screen
-        name="Overview"
-        component={Overview}
-        options={{
-          title: 'PREV',
-        }}
-      />
       <Stack.Screen
         name="Home1"
         component={Template1}
         options={{
           title: 'PREV',
         }}
-      /> */}
+      />
     </Stack.Navigator>
   );
 };

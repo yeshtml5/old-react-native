@@ -81,7 +81,7 @@ export const DrawerContents: React.FC<Props> = ({ navigation, ...props }) => {
           />
           <DrawerItem
             label="Profile"
-            onPress={() => navigation.closeDrawer()}
+            onPress={() => navigation.navigate('Profile')}
             icon={({ color, size }) => (
               <Icon style={{ marginLeft: 0 }} name="account" size={size} color={color} />
             )}

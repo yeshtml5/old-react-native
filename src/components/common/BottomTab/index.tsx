@@ -1,51 +1,46 @@
 /**
  *
  */
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
+import { View } from 'react-native';
 //navigation
 //screens
-import {Template1, Template2, HomeStackScreen} from '@screens';
-import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
+import { Overview, Template1, Template2, HomeStackScreen } from '@screens';
+import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-//icon
-import Icon from 'react-native-vector-icons/Ionicons';
-
-const Tab = createMaterialBottomTabNavigator();
+//const Tab = createMaterialBottomTabNavigator();
+const Tab = createBottomTabNavigator();
 
 const BottomTab = () => {
   //---------------------------
   return (
-    <Tab.Navigator
-      initialRouteName="Home"
-      activeColor="#FFFFFF"
-      style={{backgroundColor: 'tomato'}}>
+    <Tab.Navigator initialRouteName="Home">
       <Tab.Screen
         name="Home"
         component={HomeStackScreen}
         options={{
-          tabBarLabel: 'Home',
-          tabBarIcon: ({color}) => (
-            <MaterialCommunityIcons name="home" color={color} size={26} />
+          tabBarLabel: 'HOME',
+          tabBarIcon: ({ color }) => <MaterialCommunityIcons name="home" color={color} size={20} />,
+        }}
+      />
+      <Tab.Screen
+        name="OVERVIEW"
+        component={Overview}
+        options={{
+          tabBarLabel: 'OVERVIEW',
+          tabBarIcon: ({ color }) => (
+            <MaterialCommunityIcons name="apple" color={color} size={20} />
           ),
         }}
       />
       <Tab.Screen
-        name="Notifications1"
+        name="LAB"
         component={Template1}
         options={{
-          tabBarLabel: 'Template1',
-          tabBarIcon: ({color}) => (
-            <MaterialCommunityIcons name="bell" color={color} size={26} />
-          ),
-        }}
-      />
-      <Tab.Screen
-        name="Notifications"
-        component={Template1}
-        options={{
-          tabBarLabel: 'Template1',
-          tabBarIcon: ({color}) => (
-            <MaterialCommunityIcons name="bell" color={color} size={26} />
+          tabBarLabel: 'LAB',
+          tabBarIcon: ({ color }) => (
+            <MaterialCommunityIcons name="briefcase" color={color} size={20} />
           ),
         }}
       />
@@ -53,9 +48,9 @@ const BottomTab = () => {
         name="Profile"
         component={Template2}
         options={{
-          tabBarLabel: 'Template2',
-          tabBarIcon: ({color}) => (
-            <MaterialCommunityIcons name="account" color={color} size={26} />
+          tabBarLabel: 'Profile',
+          tabBarIcon: ({ color }) => (
+            <MaterialCommunityIcons name="account" color={color} size={20} />
           ),
         }}
       />
@@ -63,3 +58,44 @@ const BottomTab = () => {
   );
 };
 export default BottomTab;
+/*
+  <Tab.Navigator
+      initialRouteName="Home"
+      activeColor="#f0edf6"
+      style={{ backgroundColor: 'tomato' }}>
+      <Tab.Screen
+        name="Home"
+        component={HomeStackScreen}
+        options={{
+          tabBarLabel: 'Home',
+          tabBarIcon: ({ color }) => <MaterialCommunityIcons name="home" color={color} size={26} />,
+        }}
+      />
+      <Tab.Screen
+        name="Notifications1"
+        component={Template1}
+        options={{
+          tabBarLabel: 'Template1',
+          tabBarIcon: ({ color }) => <MaterialCommunityIcons name="bell" color={color} size={26} />,
+        }}
+      />
+      <Tab.Screen
+        name="Notifications"
+        component={Template1}
+        options={{
+          tabBarLabel: 'Template1',
+          tabBarIcon: ({ color }) => <MaterialCommunityIcons name="bell" color={color} size={26} />,
+        }}
+      />
+      <Tab.Screen
+        name="Profile"
+        component={Template2}
+        options={{
+          tabBarLabel: 'Profile',
+          tabBarIcon: ({ color }) => (
+            <MaterialCommunityIcons name="account" color={color} size={26} />
+          ),
+        }}
+      />
+    </Tab.Navigator>
+*/
