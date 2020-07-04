@@ -3,11 +3,11 @@
  */
 import React from 'react';
 //navigation
-import {createStackNavigator} from '@react-navigation/stack';
+import { createStackNavigator } from '@react-navigation/stack';
 //components
 import BottomTab from '@components/common/BottomTab';
 //screens
-import {HOME, Template1, Template2, Profile} from '@screens';
+import { HOME, Template1, Template2, Profile } from '@screens/index';
 //icon
 import Icon from 'react-native-vector-icons/Ionicons';
 
@@ -26,7 +26,7 @@ export default Home;
 /**
  *
  */
-export const HomeStackScreen = ({navigation}) => {
+export const HomeStackScreen = ({ navigation }) => {
   return (
     <HomeStack.Navigator
       screenOptions={{
