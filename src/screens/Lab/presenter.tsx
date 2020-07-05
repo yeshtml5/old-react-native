@@ -10,10 +10,26 @@ import { createStackNavigator } from '@react-navigation/stack';
  * @title dfdsfsd
  * @desc  HOME
  */
-const LabScreen = () => {
+const LabScreen = ({ navigation }) => {
   return (
     <SafeAreaView>
       <Text>LabScreen</Text>
+      <Button
+        title="Profile"
+        onPress={() => {
+          console.log('test');
+          navigation.navigate('Profile');
+        }}
+      />
+      <View>
+        <Button
+          onPress={() => navigation.navigate('Overview')}
+          title="Button"
+          color="#841584"
+          accessibilityLabel="Learn more about this purple button"
+        />
+        <Text>텍스트111222222</Text>
+      </View>
     </SafeAreaView>
   );
 };

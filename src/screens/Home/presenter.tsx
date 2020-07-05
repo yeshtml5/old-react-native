@@ -10,7 +10,7 @@ import BottomTab from '@components/common/BottomTab';
 //context
 import COLORS from 'contexts/color';
 //screens
-import { Overview, Template1 } from '@screens/index';
+import { Overview, LabScreen, Template1 } from '@screens/index';
 //icon
 import Icon from 'react-native-vector-icons/Ionicons';
 
@@ -58,6 +58,23 @@ export const HomeStackScreen = ({ navigation }) => {
         name="Overview"
         navigation={navigation}
         component={Overview}
+        options={{
+          title: 'Overview',
+          headerLeft: () => (
+            <Icon.Button
+              name="ios-menu"
+              size={25}
+              color="#000000"
+              backgroundColor="transparent"
+              onPress={() => navigation.openDrawer()}
+            />
+          ),
+        }}
+      />
+      <Stack.Screen
+        name="Lab"
+        navigation={navigation}
+        component={LabScreen}
         options={{
           title: 'Overview',
           headerLeft: () => (

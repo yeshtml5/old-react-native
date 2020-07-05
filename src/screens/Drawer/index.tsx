@@ -71,7 +71,7 @@ export const DrawerContents: React.FC<Props> = ({ navigation, ...props }) => {
           </View>
         </View>
         {/* 네비게이션영역 */}
-        <DrawerItemList {...props} />
+        {/* <DrawerItemList {...props} /> */}
         <Drawer.Section style={styles.items}>
           <DrawerItem
             label="Home"
@@ -101,6 +101,7 @@ export const DrawerContents: React.FC<Props> = ({ navigation, ...props }) => {
           <DrawerItem
             label="Lab"
             onPress={() => {
+              navigation.jumpTo('Lab');
               navigation.closeDrawer();
             }}
             icon={({ color, size }) => (

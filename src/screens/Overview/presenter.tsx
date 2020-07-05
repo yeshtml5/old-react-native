@@ -22,20 +22,20 @@ const DetailsStack = createStackNavigator();
  * @title dfdsfsd
  * @desc  HOME
  */
-const Overview = ({ navigation }, ...props) => {
+const OverviewScreen = ({ navigation }, ...props) => {
   return (
     <SafeAreaView>
-      <Text>Overview11111</Text>
+      <Text>Overview 페이지</Text>
       <Button
-        onPress={() => navigation.navigate('Profile')}
-        title="Overview"
-        color="#841584"
+        onPress={() => navigation.navigate('HomeScreen')}
+        title="Home 으로 이동"
+        color="#ff0000"
         accessibilityLabel="Learn more about this purple button"
       />
     </SafeAreaView>
   );
 };
-export default Overview;
+export default OverviewScreen;
 
 /**
  *
@@ -51,7 +51,7 @@ export const OverviewStackScreen = ({ navigation }) => {
       <Stack.Screen
         name="Home"
         navigation={navigation}
-        component={Profile}
+        component={OverviewScreen}
         options={{
           title: 'HOME',
           headerLeft: () => (

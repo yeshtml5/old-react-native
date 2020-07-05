@@ -5,18 +5,11 @@ import React, { useEffect } from 'react';
 import { View } from 'react-native';
 //navigation
 //screens
-import {
-  Profile,
-  Overview,
-  Template1,
-  Template2,
-  LabScreen,
-  OverviewStackScreen,
-  HomeStackScreen,
-} from '@screens/index';
+import { Profile, LabScreen, OverviewStackScreen, HomeStackScreen } from '@screens/index';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import Overview from 'screens/Overview/presenter';
 //const Tab = createMaterialBottomTabNavigator();
 const Tab = createBottomTabNavigator();
 
@@ -46,7 +39,7 @@ const BottomTab = () => {
         name="Lab"
         component={LabScreen}
         options={{
-          tabBarLabel: 'LAB1',
+          tabBarLabel: 'LAB',
           tabBarIcon: ({ color }) => (
             <MaterialCommunityIcons name="briefcase" color={color} size={20} />
           ),
@@ -56,7 +49,7 @@ const BottomTab = () => {
         name="Profile"
         component={Profile}
         options={{
-          tabBarLabel: 'Profile',
+          tabBarLabel: 'PROFILE',
           tabBarIcon: ({ color }) => (
             <MaterialCommunityIcons name="account" color={color} size={20} />
           ),
