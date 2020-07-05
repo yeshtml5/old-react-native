@@ -17,7 +17,7 @@ import {
   createDrawerNavigator,
 } from '@react-navigation/drawer';
 //screen
-import { HomeScreen, Profile } from '@screens/index';
+import { HomeScreen, ProfileStackScreen, OverviewStackScreen } from '@screens/index';
 
 export type Props = {
   navigation?: any;
@@ -76,7 +76,6 @@ export const DrawerContents: React.FC<Props> = ({ navigation, ...props }) => {
           <DrawerItem
             label="Home"
             onPress={() => {
-              alert('alert');
               navigation.jumpTo('Home');
               navigation.closeDrawer();
             }}
@@ -91,14 +90,6 @@ export const DrawerContents: React.FC<Props> = ({ navigation, ...props }) => {
             icon={({ color, size }) => <Icon name="apps" size={size} color={color} />}
           />
           <DrawerItem
-            label="Profile"
-            onPress={() => {
-              navigation.jumpTo('Profile');
-              navigation.closeDrawer();
-            }}
-            icon={({ color, size }) => <Icon name="account" size={size} color={color} />}
-          />
-          <DrawerItem
             label="Lab"
             onPress={() => {
               navigation.jumpTo('Lab');
@@ -107,6 +98,14 @@ export const DrawerContents: React.FC<Props> = ({ navigation, ...props }) => {
             icon={({ color, size }) => (
               <Icon name="language-javascript" size={size} color={color} />
             )}
+          />
+          <DrawerItem
+            label="Profile"
+            onPress={() => {
+              navigation.jumpTo('Profile');
+              navigation.closeDrawer();
+            }}
+            icon={({ color, size }) => <Icon name="account" size={size} color={color} />}
           />
           <DrawerItem
             label="Map"

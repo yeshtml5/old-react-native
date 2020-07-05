@@ -1,1 +1,5 @@
-export {default} from './container';
+/**
+ * @name Profile
+ */
+export { default } from './container';
+export { ProfileStackScreen } from './presenter';

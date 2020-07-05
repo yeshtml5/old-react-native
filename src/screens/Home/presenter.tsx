@@ -3,24 +3,19 @@
  */
 import React from 'react';
 import { StyleSheet } from 'react-native';
-//navigation
 import { createStackNavigator } from '@react-navigation/stack';
-//components
+
 import BottomTab from '@components/common/BottomTab';
-//context
-import COLORS from 'contexts/color';
-//screens
 import { Overview, LabScreen, Template1 } from '@screens/index';
-//icon
 import Icon from 'react-native-vector-icons/Ionicons';
 
 const Stack = createStackNavigator();
-const DetailsStack = createStackNavigator();
 
 /**
  * @title dfdsfsd
  * @desc  HOME
  */
+
 const HomeScreen = () => {
   return <BottomTab />;
 };

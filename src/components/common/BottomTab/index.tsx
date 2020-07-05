@@ -5,11 +5,16 @@ import React, { useEffect } from 'react';
 import { View } from 'react-native';
 //navigation
 //screens
-import { Profile, LabScreen, OverviewStackScreen, HomeStackScreen } from '@screens/index';
+import {
+  Profile,
+  LabScreen,
+  OverviewStackScreen,
+  HomeStackScreen,
+  ProfileStackScreen,
+} from '@screens/index';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import Overview from 'screens/Overview/presenter';
 //const Tab = createMaterialBottomTabNavigator();
 const Tab = createBottomTabNavigator();
 
@@ -47,7 +52,7 @@ const BottomTab = () => {
       />
       <Tab.Screen
         name="Profile"
-        component={Profile}
+        component={ProfileStackScreen}
         options={{
           tabBarLabel: 'PROFILE',
           tabBarIcon: ({ color }) => (

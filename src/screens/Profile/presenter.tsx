@@ -2,53 +2,66 @@
  *
  */
 import React from 'react';
-import { Button, View, Text, Image, StyleSheet, Alert } from 'react-native';
+import { Button, View, Text, Image, StyleSheet, SafeAreaView, Alert } from 'react-native';
 //navigation
-import { NavigationContainer } from '@react-navigation/native';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createStackNavigator } from '@react-navigation/stack';
 //screens
-import { Home, HomeScreen, DetatilsScreen } from '@screens/';
 //style
-//components
-import BottomTab from '@components/common/BottomTab';
-import Icon from 'react-native-vector-icons/FontAwesome';
-import Color from 'contexts/color.ts';
-const Tab = createBottomTabNavigator();
+//icon
+import Icon from 'react-native-vector-icons/Ionicons';
 
-export default function Presenter() {
+const Stack = createStackNavigator();
+/**
+ * @name Profile
+ *
+ */
+const ProfileScreen = ({ navigation }) => {
   return (
-    <View style={styles.container}>
-      {/* 타이틀 */}
-      <Text style={styles.title}>Screen Main Title</Text>
-      {/* 이미지 */}
-      <Image style={styles.image} source={require('assets/images/img1.jpg')} />
-      {/* 버튼 */}
-      <BottomTab />
-    </View>
+    <SafeAreaView>
+      <Text>ddd</Text>;
+    </SafeAreaView>
   );
-}
+};
+export default ProfileScreen;
+//Stack
 
-//--------------------------------------------------------
+export const ProfileStackScreen = ({ navigation }) => {
+  return (
+    <Stack.Navigator
+      screenOptions={{
+        headerTitle: 'Profile',
+        headerStyle: styles.header,
+        headerTitleStyle: styles.headerTitleStyle,
+      }}>
+      <Stack.Screen
+        component={ProfileScreen}
+        options={{
+          title: 'Profile',
+          headerLeft: () => (
+            <Icon.Button
+              name="ios-menu"
+              size={25}
+              color="#000000"
+              backgroundColor="transparent"
+              onPress={() => navigation.openDrawer()}
+            />
+          ),
+        }}
+      />
+    </Stack.Navigator>
+  );
+};
+
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    flexDirection: 'column',
+  header: {
+    elevation: 100,
+    borderBottomWidth: 0,
+    borderBottomColor: '#111',
+    backgroundColor: '#E1E1E1',
+    //backgroundColor: 'transparent',
   },
-  image: {
-    marginBottom: 20,
-    height: 400,
-    alignItems: 'stretch',
-    resizeMode: 'contain', //optional
-  },
-  title: {
-    fontSize: 20,
-  },
-  button: {
-    width: 200,
-    padding: 10,
-    color: Color.red,
-    backgroundColor: Color.black,
+  headerTitleStyle: {
+    color: '#111111',
+    fontWeight: '400',
   },
 });
