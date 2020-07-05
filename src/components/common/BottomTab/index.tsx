@@ -5,7 +5,13 @@ import React, { useEffect } from 'react';
 import { View } from 'react-native';
 //navigation
 //screens
-import { Overview, Template1, Template2, HomeStackScreen } from '@screens/index';
+import {
+  Overview,
+  Template1,
+  Template2,
+  OverviewStackScreen,
+  HomeStackScreen,
+} from '@screens/index';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -26,7 +32,7 @@ const BottomTab = () => {
       />
       <Tab.Screen
         name="Overview"
-        component={Overview}
+        component={OverviewStackScreen}
         options={{
           tabBarLabel: 'OVERVIEW',
           tabBarIcon: ({ color }) => (

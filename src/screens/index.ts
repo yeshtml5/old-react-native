@@ -6,6 +6,8 @@ export { default as DrawerScreen } from './Drawer';
 
 //Overview
 export { default as Overview } from './Overview';
+export { OverviewStackScreen } from './Overview/presenter';
+
 //Profile
 export { default as Profile } from './Profile';
 

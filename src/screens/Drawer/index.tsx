@@ -74,15 +74,25 @@ export const DrawerContents: React.FC<Props> = ({ navigation, ...props }) => {
           <DrawerItem
             label="Home"
             onPress={() => {
-              navigation.navigate('Home');
+              navigation.jumpTo('Profile');
             }}
             icon={({ color, size }) => (
               <Icon style={{ marginLeft: 0 }} name="home-outline" size={size} color={color} />
             )}
           />
           <DrawerItem
+            label="Overview"
+            onPress={() => {
+              console.log(navigation);
+              navigation.jumpTo('Overview');
+            }}
+            icon={({ color, size }) => (
+              <Icon style={{ marginLeft: 0 }} name="apps" size={size} color={color} />
+            )}
+          />
+          <DrawerItem
             label="Profile"
-            onPress={() => navigation.navigate('Profile')}
+            onPress={() => navigation.jumpTo('Profile')}
             icon={({ color, size }) => (
               <Icon style={{ marginLeft: 0 }} name="account" size={size} color={color} />
             )}
