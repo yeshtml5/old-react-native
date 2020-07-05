@@ -1,64 +1,64 @@
 /**
  *
  */
-import React from 'react';
-import {View, Text, SafeAreaView} from 'react-native';
+import React, { useEffect } from 'react';
+import { View } from 'react-native';
 //navigation
-import {createStackNavigator} from '@react-navigation/stack';
-//stack
-import {HomeStackScreen} from '@screens';
 //screens
-import {Template1, Template2, Profile} from '@screens';
-import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
+import {
+  Profile,
+  Overview,
+  Template1,
+  Template2,
+  LabScreen,
+  OverviewStackScreen,
+  HomeStackScreen,
+} from '@screens/index';
+import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-//icon
-import Icon from 'react-native-vector-icons/Ionicons';
-
-const Tab = createMaterialBottomTabNavigator();
+//const Tab = createMaterialBottomTabNavigator();
+const Tab = createBottomTabNavigator();
 
 const BottomTab = () => {
+  //---------------------------
   return (
-    <Tab.Navigator
-      initialRouteName="Home"
-      activeColor="#e91e63"
-      style={{backgroundColor: 'tomato'}}>
+    <Tab.Navigator>
       <Tab.Screen
-        name="Home"
+        name="HomeScreen"
         component={HomeStackScreen}
         options={{
-          tabBarLabel: 'Home',
-          tabBarIcon: ({color}) => (
-            <MaterialCommunityIcons name="home" color={color} size={26} />
+          tabBarLabel: 'HOME',
+          tabBarIcon: ({ color }) => <MaterialCommunityIcons name="home" color={color} size={20} />,
+        }}
+      />
+      <Tab.Screen
+        name="Overview"
+        component={OverviewStackScreen}
+        options={{
+          tabBarLabel: 'OVERVIEW',
+          tabBarIcon: ({ color }) => (
+            <MaterialCommunityIcons name="apple" color={color} size={20} />
           ),
         }}
       />
       <Tab.Screen
-        name="Notifications1"
-        component={Template1}
+        name="Lab"
+        component={LabScreen}
         options={{
-          tabBarLabel: 'Template1',
-          tabBarIcon: ({color}) => (
-            <MaterialCommunityIcons name="bell" color={color} size={26} />
-          ),
-        }}
-      />
-      <Tab.Screen
-        name="Notifications"
-        component={Template1}
-        options={{
-          tabBarLabel: 'Template1',
-          tabBarIcon: ({color}) => (
-            <MaterialCommunityIcons name="bell" color={color} size={26} />
+          tabBarLabel: 'LAB1',
+          tabBarIcon: ({ color }) => (
+            <MaterialCommunityIcons name="briefcase" color={color} size={20} />
           ),
         }}
       />
       <Tab.Screen
         name="Profile"
-        component={Template2}
+        component={Profile}
         options={{
-          tabBarLabel: 'Template2',
-          tabBarIcon: ({color}) => (
-            <MaterialCommunityIcons name="account" color={color} size={26} />
+          tabBarLabel: 'Profile',
+          tabBarIcon: ({ color }) => (
+            <MaterialCommunityIcons name="account" color={color} size={20} />
           ),
         }}
       />
@@ -66,3 +66,44 @@ const BottomTab = () => {
   );
 };
 export default BottomTab;
+/*
+  <Tab.Navigator
+      initialRouteName="Home"
+      activeColor="#f0edf6"
+      style={{ backgroundColor: 'tomato' }}>
+      <Tab.Screen
+        name="Home"
+        component={HomeStackScreen}
+        options={{
+          tabBarLabel: 'Home',
+          tabBarIcon: ({ color }) => <MaterialCommunityIcons name="home" color={color} size={26} />,
+        }}
+      />
+      <Tab.Screen
+        name="Notifications1"
+        component={Template1}
+        options={{
+          tabBarLabel: 'Template1',
+          tabBarIcon: ({ color }) => <MaterialCommunityIcons name="bell" color={color} size={26} />,
+        }}
+      />
+      <Tab.Screen
+        name="Notifications"
+        component={Template1}
+        options={{
+          tabBarLabel: 'Template1',
+          tabBarIcon: ({ color }) => <MaterialCommunityIcons name="bell" color={color} size={26} />,
+        }}
+      />
+      <Tab.Screen
+        name="Profile"
+        component={Template2}
+        options={{
+          tabBarLabel: 'Profile',
+          tabBarIcon: ({ color }) => (
+            <MaterialCommunityIcons name="account" color={color} size={26} />
+          ),
+        }}
+      />
+    </Tab.Navigator>
+*/

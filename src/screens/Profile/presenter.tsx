@@ -2,13 +2,15 @@
  *
  */
 import React from 'react';
-import {Button, View, Text, Image, StyleSheet, Alert} from 'react-native';
+import { Button, View, Text, Image, StyleSheet, Alert } from 'react-native';
 //navigation
-import {NavigationContainer} from '@react-navigation/native';
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 //screens
-import {Home, HomeScreen, DetatilsScreen} from '@screens/';
+import { Home, HomeScreen, DetatilsScreen } from '@screens/';
 //style
+//components
+import BottomTab from '@components/common/BottomTab';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import Color from 'contexts/color.ts';
 const Tab = createBottomTabNavigator();
@@ -21,6 +23,7 @@ export default function Presenter() {
       {/* 이미지 */}
       <Image style={styles.image} source={require('assets/images/img1.jpg')} />
       {/* 버튼 */}
+      <BottomTab />
     </View>
   );
 }
