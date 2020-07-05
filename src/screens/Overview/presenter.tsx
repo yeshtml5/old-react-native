@@ -2,7 +2,7 @@
  *
  */
 import React from 'react';
-import { StyleSheet } from 'react-native';
+import { Button, SafeAreaView, View, Text, StyleSheet } from 'react-native';
 //navigation
 import { createStackNavigator } from '@react-navigation/stack';
 //components
@@ -10,9 +10,10 @@ import BottomTab from '@components/common/BottomTab';
 //context
 import COLORS from 'contexts/color';
 //screens
-import { Overview, Template1 } from '@screens/index';
+import { Home, Template1, Profile } from '@screens/index';
 //icon
 import Icon from 'react-native-vector-icons/Ionicons';
+//import { Button } from 'react-native-paper';
 
 const Stack = createStackNavigator();
 const DetailsStack = createStackNavigator();
@@ -21,26 +22,36 @@ const DetailsStack = createStackNavigator();
  * @title dfdsfsd
  * @desc  HOME
  */
-const HomeScreen = () => {
-  return <BottomTab />;
+const Overview = ({ navigation }, ...props) => {
+  return (
+    <SafeAreaView>
+      <Text>Overview11111</Text>
+      <Button
+        onPress={() => navigation.navigate('Profile')}
+        title="Overview"
+        color="#841584"
+        accessibilityLabel="Learn more about this purple button"
+      />
+    </SafeAreaView>
+  );
 };
-export default HomeScreen;
+export default Overview;
 
 /**
  *
  */
-export const HomeStackScreen = ({ navigation }) => {
+export const OverviewStackScreen = ({ navigation }) => {
   return (
     <Stack.Navigator
       screenOptions={{
-        headerTitle: 'HOME',
+        headerTitle: 'Overview',
         headerStyle: styles.header,
         headerTitleStyle: styles.headerTitleStyle,
       }}>
       <Stack.Screen
-        name="HomeScreen"
+        name="Home"
         navigation={navigation}
-        component={Template1}
+        component={Profile}
         options={{
           title: 'HOME',
           headerLeft: () => (
@@ -54,37 +65,6 @@ export const HomeStackScreen = ({ navigation }) => {
           ),
         }}
       />
-      <Stack.Screen
-        name="Overview"
-        navigation={navigation}
-        component={Overview}
-        options={{
-          title: 'Overview',
-          headerLeft: () => (
-            <Icon.Button
-              name="ios-menu"
-              size={25}
-              color="#000000"
-              backgroundColor="transparent"
-              onPress={() => navigation.openDrawer()}
-            />
-          ),
-        }}
-      />
-      {/* <Stack.Screen
-        name="Overview"
-        component={Overview}
-        options={{
-          title: 'PREV',
-        }}
-      />
-      <Stack.Screen
-        name="Home1"
-        component={Template1}
-        options={{
-          title: 'PREV',
-        }}
-      /> */}
     </Stack.Navigator>
   );
 };
