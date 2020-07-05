@@ -13,10 +13,11 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import {
   DrawerContentScrollView,
   DrawerItem,
+  DrawerItemList,
   createDrawerNavigator,
 } from '@react-navigation/drawer';
 //screen
-import { Home, Profile } from '@screens/index';
+import { HomeScreen, Profile } from '@screens/index';
 
 export type Props = {
   navigation?: any;
@@ -35,11 +36,12 @@ const DrawerScreen: React.FC<Props> = props => {
 
   return (
     <DrawerNav.Navigator
+      initialRouteName="HomeScreen"
       drawerContent={props => <DrawerContents {...props} />}
       //#스타일링 drawerStyle={{ backgroundColor: '#FF0099', width: 300 }}
       overlayColor="transparent">
-      <DrawerNav.Screen name="Home" component={Home} />
-      {/* <Drawer.Screen name="Profile" component={Profile} /> */}
+      <DrawerNav.Screen name="Home" component={HomeScreen} />
+      {/* <DrawerNav.Screen name="Profile" component={Profile} /> */}
     </DrawerNav.Navigator>
   );
 };
@@ -69,59 +71,51 @@ export const DrawerContents: React.FC<Props> = ({ navigation, ...props }) => {
           </View>
         </View>
         {/* 네비게이션영역 */}
-        {/* <DrawerItemList {...props} /> */}
+        <DrawerItemList {...props} />
         <Drawer.Section style={styles.items}>
           <DrawerItem
             label="Home"
             onPress={() => {
-              navigation.jumpTo('Profile');
+              alert('alert');
+              navigation.jumpTo('Home');
+              navigation.closeDrawer();
             }}
-            icon={({ color, size }) => (
-              <Icon style={{ marginLeft: 0 }} name="home-outline" size={size} color={color} />
-            )}
+            icon={({ color, size }) => <Icon name="home-outline" size={size} color={color} />}
           />
           <DrawerItem
             label="Overview"
             onPress={() => {
-              console.log(navigation);
               navigation.jumpTo('Overview');
+              navigation.closeDrawer();
             }}
-            icon={({ color, size }) => (
-              <Icon style={{ marginLeft: 0 }} name="apps" size={size} color={color} />
-            )}
+            icon={({ color, size }) => <Icon name="apps" size={size} color={color} />}
           />
           <DrawerItem
             label="Profile"
-            onPress={() => navigation.jumpTo('Profile')}
-            icon={({ color, size }) => (
-              <Icon style={{ marginLeft: 0 }} name="account" size={size} color={color} />
-            )}
+            onPress={() => {
+              navigation.jumpTo('Profile');
+              navigation.closeDrawer();
+            }}
+            icon={({ color, size }) => <Icon name="account" size={size} color={color} />}
           />
           <DrawerItem
             label="Lab"
-            onPress={() => navigation.closeDrawer()}
+            onPress={() => {
+              navigation.closeDrawer();
+            }}
             icon={({ color, size }) => (
-              <Icon
-                style={{ marginLeft: 0 }}
-                name="language-javascript"
-                size={size}
-                color={color}
-              />
+              <Icon name="language-javascript" size={size} color={color} />
             )}
           />
           <DrawerItem
             label="Map"
             onPress={() => navigation.closeDrawer()}
-            icon={({ color, size }) => (
-              <Icon style={{ marginLeft: 0 }} name="map-outline" size={size} color={color} />
-            )}
+            icon={({ color, size }) => <Icon name="map-outline" size={size} color={color} />}
           />
           <DrawerItem
             label="Camera"
             onPress={() => navigation.closeDrawer()}
-            icon={({ color, size }) => (
-              <Icon style={{ marginLeft: 0 }} name="camera" size={size} color={color} />
-            )}
+            icon={({ color, size }) => <Icon name="camera" size={size} color={color} />}
           />
         </Drawer.Section>
         <Drawer.Section>

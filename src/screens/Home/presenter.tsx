@@ -21,10 +21,10 @@ const DetailsStack = createStackNavigator();
  * @title dfdsfsd
  * @desc  HOME
  */
-const Home = () => {
+const HomeScreen = () => {
   return <BottomTab />;
 };
-export default Home;
+export default HomeScreen;
 
 /**
  *
@@ -38,11 +38,28 @@ export const HomeStackScreen = ({ navigation }) => {
         headerTitleStyle: styles.headerTitleStyle,
       }}>
       <Stack.Screen
-        name="Home"
+        name="HomeScreen"
         navigation={navigation}
         component={Template1}
         options={{
           title: 'HOME',
+          headerLeft: () => (
+            <Icon.Button
+              name="ios-menu"
+              size={25}
+              color="#000000"
+              backgroundColor="transparent"
+              onPress={() => navigation.openDrawer()}
+            />
+          ),
+        }}
+      />
+      <Stack.Screen
+        name="Overview"
+        navigation={navigation}
+        component={Overview}
+        options={{
+          title: 'Overview',
           headerLeft: () => (
             <Icon.Button
               name="ios-menu"

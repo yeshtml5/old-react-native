@@ -23,8 +23,6 @@ const DetailsStack = createStackNavigator();
  * @desc  HOME
  */
 const Overview = ({ navigation }, ...props) => {
-  console.clear();
-  console.log(props);
   return (
     <SafeAreaView>
       <Text>Overview11111</Text>

@@ -6,9 +6,11 @@ import { View } from 'react-native';
 //navigation
 //screens
 import {
+  Profile,
   Overview,
   Template1,
   Template2,
+  LabScreen,
   OverviewStackScreen,
   HomeStackScreen,
 } from '@screens/index';
@@ -21,9 +23,9 @@ const Tab = createBottomTabNavigator();
 const BottomTab = () => {
   //---------------------------
   return (
-    <Tab.Navigator initialRouteName="Home">
+    <Tab.Navigator>
       <Tab.Screen
-        name="Home"
+        name="HomeScreen"
         component={HomeStackScreen}
         options={{
           tabBarLabel: 'HOME',
@@ -42,9 +44,9 @@ const BottomTab = () => {
       />
       <Tab.Screen
         name="Lab"
-        component={Template1}
+        component={LabScreen}
         options={{
-          tabBarLabel: 'LAB',
+          tabBarLabel: 'LAB1',
           tabBarIcon: ({ color }) => (
             <MaterialCommunityIcons name="briefcase" color={color} size={20} />
           ),
@@ -52,7 +54,7 @@ const BottomTab = () => {
       />
       <Tab.Screen
         name="Profile"
-        component={Template2}
+        component={Profile}
         options={{
           tabBarLabel: 'Profile',
           tabBarIcon: ({ color }) => (
