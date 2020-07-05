@@ -6,13 +6,11 @@ import { View } from 'react-native';
 //navigation
 //screens
 import {
-  Profile,
-  LabScreen,
   OverviewStackScreen,
   HomeStackScreen,
+  LabStackScreen,
   ProfileStackScreen,
 } from '@screens/index';
-import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 //const Tab = createMaterialBottomTabNavigator();
@@ -42,7 +40,7 @@ const BottomTab = () => {
       />
       <Tab.Screen
         name="Lab"
-        component={LabScreen}
+        component={LabStackScreen}
         options={{
           tabBarLabel: 'LAB',
           tabBarIcon: ({ color }) => (

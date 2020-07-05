@@ -49,54 +49,6 @@ export const HomeStackScreen = ({ navigation }) => {
           ),
         }}
       />
-      <Stack.Screen
-        name="Overview"
-        navigation={navigation}
-        component={Overview}
-        options={{
-          title: 'Overview',
-          headerLeft: () => (
-            <Icon.Button
-              name="ios-menu"
-              size={25}
-              color="#000000"
-              backgroundColor="transparent"
-              onPress={() => navigation.openDrawer()}
-            />
-          ),
-        }}
-      />
-      <Stack.Screen
-        name="Lab"
-        navigation={navigation}
-        component={LabScreen}
-        options={{
-          title: 'Overview',
-          headerLeft: () => (
-            <Icon.Button
-              name="ios-menu"
-              size={25}
-              color="#000000"
-              backgroundColor="transparent"
-              onPress={() => navigation.openDrawer()}
-            />
-          ),
-        }}
-      />
-      {/* <Stack.Screen
-        name="Overview"
-        component={Overview}
-        options={{
-          title: 'PREV',
-        }}
-      />
-      <Stack.Screen
-        name="Home1"
-        component={Template1}
-        options={{
-          title: 'PREV',
-        }}
-      /> */}
     </Stack.Navigator>
   );
 };

@@ -8,7 +8,7 @@ export { default as DrawerScreen } from './Drawer';
 export { default as Overview, OverviewStackScreen } from './Overview';
 
 //Lab
-export { default as LabScreen } from './Lab';
+export { default as LabScreen, LabStackScreen } from './Lab';
 
 //Profile
 export { default as Profile, ProfileStackScreen } from './Profile';

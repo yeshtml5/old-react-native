@@ -18,7 +18,13 @@ const Stack = createStackNavigator();
 const ProfileScreen = ({ navigation }) => {
   return (
     <SafeAreaView>
-      <Text>ddd</Text>;
+      <Text>프로필페이지</Text>
+      <Button
+        onPress={() => navigation.navigate('HomeScreen')}
+        title="Home 으로 이동"
+        color="#ff0000"
+        accessibilityLabel="Learn more about this purple button"
+      />
     </SafeAreaView>
   );
 };
@@ -29,14 +35,15 @@ export const ProfileStackScreen = ({ navigation }) => {
   return (
     <Stack.Navigator
       screenOptions={{
-        headerTitle: 'Profile',
+        headerTitle: '프로필',
         headerStyle: styles.header,
         headerTitleStyle: styles.headerTitleStyle,
       }}>
       <Stack.Screen
+        name="Profile"
+        navigation={navigation}
         component={ProfileScreen}
         options={{
-          title: 'Profile',
           headerLeft: () => (
             <Icon.Button
               name="ios-menu"
@@ -56,8 +63,8 @@ const styles = StyleSheet.create({
   header: {
     elevation: 100,
     borderBottomWidth: 0,
-    borderBottomColor: '#111',
-    backgroundColor: '#E1E1E1',
+    borderBottomColor: '#FFFFFF',
+    backgroundColor: '#EEEEEE',
     //backgroundColor: 'transparent',
   },
   headerTitleStyle: {

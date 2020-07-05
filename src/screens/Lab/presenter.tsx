@@ -5,7 +5,9 @@ import React from 'react';
 import { Button, SafeAreaView, View, Text, StyleSheet } from 'react-native';
 //navigation
 import { createStackNavigator } from '@react-navigation/stack';
+import Icon from 'react-native-vector-icons/Ionicons';
 
+const Stack = createStackNavigator();
 /**
  * @title dfdsfsd
  * @desc  HOME
@@ -17,7 +19,6 @@ const LabScreen = ({ navigation }) => {
       <Button
         title="Profile"
         onPress={() => {
-          console.log('test');
           navigation.navigate('Profile');
         }}
       />
@@ -35,6 +36,37 @@ const LabScreen = ({ navigation }) => {
 };
 export default LabScreen;
 
+/**
+ *
+ */
+export const LabStackScreen = ({ navigation }) => {
+  return (
+    <Stack.Navigator
+      screenOptions={{
+        headerTitle: '랩실',
+        headerStyle: styles.header,
+        headerTitleStyle: styles.headerTitleStyle,
+      }}>
+      <Stack.Screen
+        name="Home"
+        navigation={navigation}
+        component={LabScreen}
+        options={{
+          title: 'HOME',
+          headerLeft: () => (
+            <Icon.Button
+              name="ios-menu"
+              size={25}
+              color="#000000"
+              backgroundColor="transparent"
+              onPress={() => navigation.openDrawer()}
+            />
+          ),
+        }}
+      />
+    </Stack.Navigator>
+  );
+};
 const styles = StyleSheet.create({
   header: {
     elevation: 100,
