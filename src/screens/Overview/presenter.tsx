@@ -27,7 +27,7 @@ const Overview = ({ navigation }, ...props) => {
   console.log(props);
   return (
     <SafeAreaView>
-      <Text>1111</Text>
+      <Text>Overview</Text>
       <Button
         onPress={() => navigation.navigate('Profile')}
         title="Overview"

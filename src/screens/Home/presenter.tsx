@@ -40,7 +40,7 @@ export const HomeStackScreen = ({ navigation }) => {
       <Stack.Screen
         name="Home"
         navigation={navigation}
-        component={Overview}
+        component={Template1}
         options={{
           title: 'HOME',
           headerLeft: () => (

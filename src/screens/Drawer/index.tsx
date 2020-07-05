@@ -6,13 +6,12 @@
  * Icon : https://oblador.github.io/react-native-vector-icons/
  */
 
-import React, { useEffect } from 'react';
-import { SafeAreaView, View, useWindowDimensions, StyleSheet } from 'react-native';
+import React from 'react';
+import { View, useWindowDimensions, StyleSheet } from 'react-native';
 import { Drawer, Switch, Title, Avatar, Text, Caption } from 'react-native-paper';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import {
   DrawerContentScrollView,
-  DrawerItemList,
   DrawerItem,
   createDrawerNavigator,
 } from '@react-navigation/drawer';
@@ -73,8 +72,10 @@ export const DrawerContents: React.FC<Props> = ({ navigation, ...props }) => {
         {/* <DrawerItemList {...props} /> */}
         <Drawer.Section style={styles.items}>
           <DrawerItem
-            label="HOME"
-            onPress={() => navigation.closeDrawer()}
+            label="Home"
+            onPress={() => {
+              navigation.navigate('Home');
+            }}
             icon={({ color, size }) => (
               <Icon style={{ marginLeft: 0 }} name="home-outline" size={size} color={color} />
             )}
