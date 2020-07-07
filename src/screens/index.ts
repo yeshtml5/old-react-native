@@ -1,3 +1,6 @@
+//Main
+export { default as MainScreen } from './Main';
+
 //Home
 export { default as HomeScreen, HomeStackScreen } from './Home';
 

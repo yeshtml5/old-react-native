@@ -2,11 +2,11 @@
  *
  */
 import React from 'react';
-import { StyleSheet } from 'react-native';
+import { Text, StyleSheet } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
 
 import BottomTab from '@components/common/BottomTab';
-import { Overview, LabScreen, Template1 } from '@screens/index';
+import * as Screen from '@screens/index';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 const Stack = createStackNavigator();
@@ -17,7 +17,7 @@ const Stack = createStackNavigator();
  */
 
 const HomeScreen = () => {
-  return <BottomTab />;
+  return <Text>test</Text>;
 };
 export default HomeScreen;
 
@@ -35,7 +35,7 @@ export const HomeStackScreen = ({ navigation }) => {
       <Stack.Screen
         name="HomeScreen"
         navigation={navigation}
-        component={Template1}
+        component={Screen.HomeScreen}
         options={{
           title: 'HOME',
           headerLeft: () => (

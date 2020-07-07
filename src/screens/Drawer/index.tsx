@@ -17,7 +17,7 @@ import {
   createDrawerNavigator,
 } from '@react-navigation/drawer';
 //screen
-import { HomeScreen, ProfileStackScreen, OverviewStackScreen } from '@screens/index';
+import * as Screen from '@screens/index';
 
 export type Props = {
   navigation?: any;
@@ -40,7 +40,7 @@ const DrawerScreen: React.FC<Props> = props => {
       drawerContent={props => <DrawerContents {...props} />}
       //#스타일링 drawerStyle={{ backgroundColor: '#FF0099', width: 300 }}
       overlayColor="transparent">
-      <DrawerNav.Screen name="Home" component={HomeScreen} />
+      <DrawerNav.Screen name="Main" component={Screen.MainScreen} />
       {/* <DrawerNav.Screen name="Profile" component={Profile} /> */}
     </DrawerNav.Navigator>
   );
@@ -76,7 +76,7 @@ export const DrawerContents: React.FC<Props> = ({ navigation, ...props }) => {
           <DrawerItem
             label="Home"
             onPress={() => {
-              navigation.jumpTo('Home');
+              navigation.jumpTo('HomeScreen');
               navigation.closeDrawer();
             }}
             icon={({ color, size }) => <Icon name="home-outline" size={size} color={color} />}
