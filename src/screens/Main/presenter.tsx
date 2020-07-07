@@ -2,12 +2,7 @@ import React, { useEffect } from 'react';
 import { View } from 'react-native';
 //navigation
 //screens
-import {
-  OverviewStackScreen,
-  HomeStackScreen,
-  LabStackScreen,
-  ProfileStackScreen,
-} from '@screens/index';
+import * as Screen from '@screens/index';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 //const Tab = createMaterialBottomTabNavigator();
@@ -19,7 +14,7 @@ const MainScreen = () => {
     <Tab.Navigator>
       <Tab.Screen
         name="HomeScreen"
-        component={HomeStackScreen}
+        component={Screen.HomeStackScreen}
         options={{
           tabBarLabel: 'HOME',
           tabBarIcon: ({ color }) => <MaterialCommunityIcons name="home" color={color} size={20} />,
@@ -27,7 +22,7 @@ const MainScreen = () => {
       />
       <Tab.Screen
         name="Overview"
-        component={OverviewStackScreen}
+        component={Screen.OverviewStackScreen}
         options={{
           tabBarLabel: 'OVERVIEW',
           tabBarIcon: ({ color }) => (
@@ -37,7 +32,7 @@ const MainScreen = () => {
       />
       <Tab.Screen
         name="Lab"
-        component={LabStackScreen}
+        component={Screen.LabStackScreen}
         options={{
           tabBarLabel: 'LAB',
           tabBarIcon: ({ color }) => (
@@ -47,7 +42,7 @@ const MainScreen = () => {
       />
       <Tab.Screen
         name="Profile"
-        component={ProfileStackScreen}
+        component={Screen.ProfileStackScreen}
         options={{
           tabBarLabel: 'PROFILE',
           tabBarIcon: ({ color }) => (

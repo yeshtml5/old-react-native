@@ -4,10 +4,8 @@
 import React from 'react';
 import { Text, StyleSheet } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
-
-import BottomTab from '@components/common/BottomTab';
-import * as Screen from '@screens/index';
 import Icon from 'react-native-vector-icons/Ionicons';
+import * as Screen from '@screens/index';
 
 const Stack = createStackNavigator();
 
