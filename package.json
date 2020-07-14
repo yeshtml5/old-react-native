@@ -46,6 +46,7 @@
     "@types/react-test-renderer": "^16.9.2",
     "babel-jest": "^24.9.0",
     "babel-plugin-module-resolver": "^4.0.0",
+    "babel-plugin-styled-components": "^1.10.7",
     "eslint": "^6.5.1",
     "eslint-import-resolver-babel-module": "^5.1.2",
     "eslint-plugin-import": "^2.22.0",
@@ -55,6 +56,19 @@
     "typescript": "^3.9.5"
   },
   "jest": {
-    "preset": "react-native"
+    "preset": "react-native",
+    "globals": {
+      "ts-jest": {
+        "tsConfig": true
+      }
+    },
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ]
   }
 }

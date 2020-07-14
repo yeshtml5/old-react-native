@@ -20,6 +20,7 @@ import {
 //screen
 import * as Screen from '@screens';
 //images
+import { profile_me } from '@app/assets';
 
 export type Props = {
   navigation?: any;
@@ -55,12 +56,13 @@ export default DrawerScreen;
  */
 
 export const DrawerContents: React.FC<Props> = ({ navigation, ...props }) => {
+  console.log(profile_me);
   return (
     <View style={styles.container}>
       <DrawerContentScrollView style={styles.scrollView} {...props}>
         {/* 상단유틸영역 */}
         <View style={{ flexDirection: 'row', marginTop: 15 }}>
-          {/* <Avatar.Image source={profile_me} size={50} /> */}
+          <Avatar.Image source={profile_me} size={50} />
           <View style={{ marginLeft: 20, flexDirection: 'column' }}>
             <Title>wanhwi.son</Title>
             <Caption>yeshtml5@gmail.com</Caption>
@@ -133,11 +135,6 @@ export const DrawerContents: React.FC<Props> = ({ navigation, ...props }) => {
     </View>
   );
 };
-
-const ProfileIcon = styled.Image`
-  width: 30px;
-  height: 30px;
-`;
 
 const styles = StyleSheet.create({
   container: {

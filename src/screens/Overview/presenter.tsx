@@ -13,8 +13,7 @@ import COLORS from 'contexts/color';
 import { HomeScreen, Template1, Profile } from '@screens';
 //icon
 import Icon from 'react-native-vector-icons/Ionicons';
-//import { Button } from 'react-native-paper';
-
+import { MENU_NAMES } from '@app/lib';
 const Stack = createStackNavigator();
 
 /**
@@ -48,7 +47,7 @@ export const OverviewStackScreen = ({ navigation }) => {
         headerTitleStyle: styles.headerTitleStyle,
       }}>
       <Stack.Screen
-        name="Home"
+        name={MENU_NAMES.OVERVIEW}
         navigation={navigation}
         component={OverviewScreen}
         options={{

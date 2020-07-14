@@ -22,13 +22,11 @@ const HomeScreen = () => {
   return (
     <React.Fragment>
       <TouchableOpacity
+        style={styles.button}
         onPress={() => {
-          console.log(MENU_NAMES);
-          navigation.dispatch(
-            StackActions.push(MENU_NAMES.MAP, {
-              title: 'my_title',
-            }),
-          );
+          alert(MENU_NAMES.OVERVIEW);
+          navigation.navigate('Profile');
+          //  navigation.dispatch(StackActions.push(MENU_NAMES.OVERVIEW));
         }}>
         <Text>클릭</Text>
       </TouchableOpacity>
@@ -79,5 +77,9 @@ const styles = StyleSheet.create({
   headerTitleStyle: {
     color: '#111111',
     fontWeight: '400',
+  },
+  button: {
+    padding: 30,
+    backgroundColor: '#ff0000',
   },
 });
