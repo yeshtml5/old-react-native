@@ -7,6 +7,7 @@
  */
 
 import React from 'react';
+import styled from 'styled-components/native';
 import { View, useWindowDimensions, StyleSheet } from 'react-native';
 import { Drawer, Switch, Title, Avatar, Text, Caption } from 'react-native-paper';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -18,6 +19,7 @@ import {
 } from '@react-navigation/drawer';
 //screen
 import * as Screen from '@screens';
+//images
 
 export type Props = {
   navigation?: any;
@@ -33,7 +35,6 @@ const DrawerNav = createDrawerNavigator();
 const DrawerScreen: React.FC<Props> = props => {
   //const
   const dimensions = useWindowDimensions();
-
   return (
     <DrawerNav.Navigator
       initialRouteName="HomeScreen"
@@ -41,6 +42,7 @@ const DrawerScreen: React.FC<Props> = props => {
       //#스타일링 drawerStyle={{ backgroundColor: '#FF0099', width: 300 }}
       overlayColor="transparent">
       <DrawerNav.Screen name="Main" component={Screen.MainScreen} />
+
       {/* <DrawerNav.Screen name="Profile" component={Profile} /> */}
     </DrawerNav.Navigator>
   );
@@ -58,13 +60,7 @@ export const DrawerContents: React.FC<Props> = ({ navigation, ...props }) => {
       <DrawerContentScrollView style={styles.scrollView} {...props}>
         {/* 상단유틸영역 */}
         <View style={{ flexDirection: 'row', marginTop: 15 }}>
-          <Avatar.Image
-            source={{
-              url:
-                'https://avatars1.githubusercontent.com/u/20413597?s=400&u=d0529ee06fbfdc0701664b262ac2e38936b420ee&v=4',
-            }}
-            size={50}
-          />
+          {/* <Avatar.Image source={profile_me} size={50} /> */}
           <View style={{ marginLeft: 20, flexDirection: 'column' }}>
             <Title>wanhwi.son</Title>
             <Caption>yeshtml5@gmail.com</Caption>
@@ -137,6 +133,11 @@ export const DrawerContents: React.FC<Props> = ({ navigation, ...props }) => {
     </View>
   );
 };
+
+const ProfileIcon = styled.Image`
+  width: 30px;
+  height: 30px;
+`;
 
 const styles = StyleSheet.create({
   container: {
