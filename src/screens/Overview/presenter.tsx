@@ -10,7 +10,7 @@ import BottomTab from '@components/common/BottomTab';
 //context
 import COLORS from 'contexts/color';
 //screens
-import { Home, Template1, Profile } from '@screens/index';
+import { HomeScreen, Template1, Profile } from '@screens';
 //icon
 import Icon from 'react-native-vector-icons/Ionicons';
 //import { Button } from 'react-native-paper';

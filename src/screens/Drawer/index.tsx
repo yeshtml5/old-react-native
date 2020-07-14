@@ -17,7 +17,7 @@ import {
   createDrawerNavigator,
 } from '@react-navigation/drawer';
 //screen
-import * as Screen from '@screens/index';
+import * as Screen from '@screens';
 
 export type Props = {
   navigation?: any;

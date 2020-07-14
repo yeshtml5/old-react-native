@@ -5,12 +5,7 @@ import React, { useEffect } from 'react';
 import { View } from 'react-native';
 //navigation
 //screens
-import {
-  OverviewStackScreen,
-  HomeStackScreen,
-  LabStackScreen,
-  ProfileStackScreen,
-} from '@screens/index';
+import { OverviewStackScreen, HomeStackScreen, LabStackScreen, ProfileStackScreen } from '@screens';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 //const Tab = createMaterialBottomTabNavigator();

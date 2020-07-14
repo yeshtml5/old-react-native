@@ -5,7 +5,7 @@ import React from 'react';
 import { View, Text, Button } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 //screens
-import { Template2 } from '@screens/index';
+import { Template2 } from '@screens';
 
 export default function Template1({ navigation }) {
   return (

@@ -5,7 +5,7 @@ import React from 'react';
 import { Text, StyleSheet } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
 import Icon from 'react-native-vector-icons/Ionicons';
-import * as Screen from '@screens/index';
+import * as Screen from '@screens';
 
 const Stack = createStackNavigator();
 
