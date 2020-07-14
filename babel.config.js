@@ -21,7 +21,8 @@ module.exports = {
         ],
         root: ['./'],
         alias: {
-          '@src': './src',
+          '@app': './src',
+          '@screens': './src/screens',
         },
       },
     ],
