@@ -2,9 +2,11 @@
  *
  */
 import React from 'react';
-import { Text, StyleSheet } from 'react-native';
+import { TouchableOpacity, Text, StyleSheet } from 'react-native';
+import { useNavigation, StackActions, CommonActions } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import Icon from 'react-native-vector-icons/Ionicons';
+import { MENU_NAMES } from '@app/lib';
 import * as Screen from '@screens';
 
 const Stack = createStackNavigator();
@@ -15,7 +17,21 @@ const Stack = createStackNavigator();
  */
 
 const HomeScreen = () => {
-  return <Text>test</Text>;
+  const navigation = useNavigation();
+  console.log(navigation);
+  return (
+    <React.Fragment>
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => {
+          alert(MENU_NAMES.OVERVIEW);
+          navigation.navigate('Profile');
+          //  navigation.dispatch(StackActions.push(MENU_NAMES.OVERVIEW));
+        }}>
+        <Text>클릭</Text>
+      </TouchableOpacity>
+    </React.Fragment>
+  );
 };
 export default HomeScreen;
 
@@ -32,7 +48,6 @@ export const HomeStackScreen = ({ navigation }) => {
       }}>
       <Stack.Screen
         name="HomeScreen"
-        navigation={navigation}
         component={Screen.HomeScreen}
         options={{
           title: 'HOME',
@@ -62,5 +77,9 @@ const styles = StyleSheet.create({
   headerTitleStyle: {
     color: '#111111',
     fontWeight: '400',
+  },
+  button: {
+    padding: 30,
+    backgroundColor: '#ff0000',
   },
 });

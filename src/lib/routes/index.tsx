@@ -2,7 +2,8 @@
  * @title
  */
 import React from 'react';
-import * as Screen from '@screens';
+import * as Screen from '@app/screens';
+
 import { StackHeaderTitleProps, StackHeaderLeftButtonProps } from '@react-navigation/stack';
 
 //type

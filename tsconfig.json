@@ -31,7 +31,6 @@
     "paths": {
       "@app/*": ["src/*"],
       "@components/*": ["src/components/*"],
-      "@screens": ["src/screens"],
       "@screens/*": ["src/screens/*"]
     },
     "typeRoots": ["src/types", "node_modules/@types"]
