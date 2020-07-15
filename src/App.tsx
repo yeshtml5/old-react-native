@@ -6,19 +6,16 @@
  */
 
 import React from 'react';
-//navigation
 import { NavigationContainer } from '@react-navigation/native';
-//screen
 import { DrawerScreen } from '@app/screens';
-//  import { DrawerScreen } from './screens/';
 
 export type Props = {};
 
-const App: React.FC<Props> = () => {
+function App() {
   return (
     <NavigationContainer>
       <DrawerScreen />
     </NavigationContainer>
   );
-};
+}
 export default App;

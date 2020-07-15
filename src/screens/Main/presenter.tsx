@@ -1,14 +1,13 @@
 import React, { useEffect } from 'react';
 import { View } from 'react-native';
-//navigation
-//screens
-import * as Screen from '@screens';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-//const Tab = createMaterialBottomTabNavigator();
+
+import * as Screen from '@app/screens';
+
 const Tab = createBottomTabNavigator();
 
-const MainScreen = () => {
+function MainScreen() {
   //---------------------------
   return (
     <Tab.Navigator>
@@ -52,5 +51,5 @@ const MainScreen = () => {
       />
     </Tab.Navigator>
   );
-};
+}
 export default MainScreen;

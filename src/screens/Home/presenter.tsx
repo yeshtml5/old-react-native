@@ -6,9 +6,10 @@ import { TouchableOpacity, Text, StyleSheet } from 'react-native';
 import { useNavigation, StackActions, CommonActions } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import Icon from 'react-native-vector-icons/Ionicons';
-import { MENU_NAMES } from '@app/lib';
-import * as Screen from '@screens';
 
+import * as Screen from '@app/screens';
+import { MENU_NAMES } from '@app/lib';
+import { HomeButton } from '@app/components';
 const Stack = createStackNavigator();
 
 /**
@@ -18,13 +19,11 @@ const Stack = createStackNavigator();
 
 const HomeScreen = () => {
   const navigation = useNavigation();
-  console.log(navigation);
   return (
     <React.Fragment>
       <TouchableOpacity
         style={styles.button}
         onPress={() => {
-          alert(MENU_NAMES.OVERVIEW);
           navigation.navigate('Profile');
           //  navigation.dispatch(StackActions.push(MENU_NAMES.OVERVIEW));
         }}>
@@ -47,10 +46,11 @@ export const HomeStackScreen = ({ navigation }) => {
         headerTitleStyle: styles.headerTitleStyle,
       }}>
       <Stack.Screen
-        name="HomeScreen"
+        name={MENU_NAMES.HOME}
         component={Screen.HomeScreen}
         options={{
           title: 'HOME',
+          headerRight: () => <HomeButton />,
           headerLeft: () => (
             <Icon.Button
               name="ios-menu"

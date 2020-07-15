@@ -9,23 +9,18 @@
 import React from 'react';
 import styled from 'styled-components/native';
 import { View, useWindowDimensions, StyleSheet } from 'react-native';
+import { CommonActions, useNavigation } from '@react-navigation/native';
 import { Drawer, Switch, Title, Avatar, Text, Caption } from 'react-native-paper';
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import {
   DrawerContentScrollView,
   DrawerItem,
   DrawerItemList,
   createDrawerNavigator,
 } from '@react-navigation/drawer';
-//screen
-import * as Screen from '@screens';
-//images
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import * as Screen from '@app/screens';
 import { profile_me } from '@app/assets';
-
-export type Props = {
-  navigation?: any;
-  url: string;
-};
+import { MENU_NAMES } from '@app/lib';
 type Avatar = {
   url: string;
 };
@@ -33,7 +28,7 @@ type Avatar = {
 //create
 const DrawerNav = createDrawerNavigator();
 
-const DrawerScreen: React.FC<Props> = props => {
+function DrawerScreen() {
   //const
   const dimensions = useWindowDimensions();
   return (
@@ -47,7 +42,7 @@ const DrawerScreen: React.FC<Props> = props => {
       {/* <DrawerNav.Screen name="Profile" component={Profile} /> */}
     </DrawerNav.Navigator>
   );
-};
+}
 export default DrawerScreen;
 
 /**
@@ -56,7 +51,6 @@ export default DrawerScreen;
  */
 
 export const DrawerContents: React.FC<Props> = ({ navigation, ...props }) => {
-  console.log(profile_me);
   return (
     <View style={styles.container}>
       <DrawerContentScrollView style={styles.scrollView} {...props}>
@@ -74,7 +68,11 @@ export const DrawerContents: React.FC<Props> = ({ navigation, ...props }) => {
           <DrawerItem
             label="Home"
             onPress={() => {
-              navigation.jumpTo('HomeScreen');
+              navigation.dispatch(
+                CommonActions.navigate({
+                  name: MENU_NAMES.HOME,
+                }),
+              );
               navigation.closeDrawer();
             }}
             icon={({ color, size }) => <Icon name="home-outline" size={size} color={color} />}
