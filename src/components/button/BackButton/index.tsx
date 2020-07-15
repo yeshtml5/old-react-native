@@ -3,6 +3,8 @@
  * @desc 헤더에서 공통으로 사용되는 홈으로 이전 버튼
  */
 import React from 'react';
+import { Text } from 'react-native';
+
 import styled from 'styled-components/native';
 import { StackHeaderLeftButtonProps } from '@react-navigation/stack';
 import { useNavigation, CommonActions } from '@react-navigation/native';
@@ -25,8 +27,9 @@ function BackButton({  }: StackHeaderLeftButtonProps) {
       onPress={event => {
         event.preventDefault();
         navigation.dispatch(CommonActions.goBack());
-      }}
-    />
+      }}>
+      <Text>이전</Text>
+    </StyledBackButton>
   );
 }
 

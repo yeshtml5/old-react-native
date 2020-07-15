@@ -45,23 +45,7 @@ export const HomeStackScreen = ({ navigation }) => {
         headerStyle: styles.header,
         headerTitleStyle: styles.headerTitleStyle,
       }}>
-      <Stack.Screen
-        name={MENU_NAMES.HOME}
-        component={Screen.HomeScreen}
-        options={{
-          title: 'HOME',
-          headerRight: () => <HomeButton />,
-          headerLeft: () => (
-            <Icon.Button
-              name="ios-menu"
-              size={25}
-              color="#000000"
-              backgroundColor="transparent"
-              onPress={() => navigation.openDrawer()}
-            />
-          ),
-        }}
-      />
+      <Stack.Screen name={MENU_NAMES.HOME} component={Screen.HomeScreen} />
     </Stack.Navigator>
   );
 };

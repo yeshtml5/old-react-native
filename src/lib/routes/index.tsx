@@ -5,7 +5,7 @@ import React from 'react';
 import * as Screen from '@app/screens';
 
 import { StackHeaderTitleProps, StackHeaderLeftButtonProps } from '@react-navigation/stack';
-
+import { BackButton, HomeButton } from '@app/components';
 //type
 export type RouteType = {
   name: string;
@@ -41,61 +41,62 @@ const routes = [
     options: {
       title: '메인',
       headerShown: true,
-      animationEnabled: false,
+      animationEnabled: true,
     },
   },
   {
     name: MENU_NAMES.HOME,
     component: Screen.HomeStackScreen,
     options: {
-      title: '메인',
+      title: '홈',
       headerShown: true,
-      animationEnabled: false,
+      animationEnabled: true,
     },
   },
   {
     name: MENU_NAMES.OVERVIEW,
     component: Screen.OverviewStackScreen,
     options: {
-      title: '메인',
+      title: '오버뷰',
       headerShown: true,
-      animationEnabled: false,
+      animationEnabled: true,
     },
   },
   {
     name: MENU_NAMES.LAB,
     component: Screen.LabStackScreen,
     options: {
-      title: '메인',
+      title: '랩',
       headerShown: true,
-      animationEnabled: false,
+      animationEnabled: true,
     },
   },
   {
     name: MENU_NAMES.PROFILE,
     component: Screen.ProfileStackScreen,
     options: {
-      title: '메인',
+      title: '프로필',
       headerShown: true,
-      animationEnabled: false,
+      animationEnabled: true,
     },
   },
   {
     name: MENU_NAMES.TEMPLATE1,
     component: Screen.Template1,
     options: {
-      title: '메인',
+      title: '템플릿1',
       headerShown: true,
-      animationEnabled: false,
+      animationEnabled: true,
     },
   },
   {
     name: MENU_NAMES.TEMPLATE2,
-    component: Screen.TEMPLATE2,
+    component: Screen.Template2,
     options: {
-      title: '메인',
+      title: '템플릿2',
       headerShown: true,
-      animationEnabled: false,
+      animationEnabled: true,
+      headerLeft: props => <BackButton {...props} />,
     },
   },
 ];

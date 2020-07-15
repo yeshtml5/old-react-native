@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { View } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-
+import { MENU_NAMES } from '@app/lib';
 import * as Screen from '@app/screens';
 
 const Tab = createBottomTabNavigator();
@@ -12,7 +12,7 @@ function MainScreen() {
   return (
     <Tab.Navigator>
       <Tab.Screen
-        name="HomeScreen"
+        name={MENU_NAMES.HOME}
         component={Screen.HomeStackScreen}
         options={{
           tabBarLabel: 'HOME',
@@ -20,7 +20,7 @@ function MainScreen() {
         }}
       />
       <Tab.Screen
-        name="Overview"
+        name={MENU_NAMES.OVERVIEW}
         component={Screen.OverviewStackScreen}
         options={{
           tabBarLabel: 'OVERVIEW',
@@ -30,7 +30,7 @@ function MainScreen() {
         }}
       />
       <Tab.Screen
-        name="Lab"
+        name={MENU_NAMES.LAB}
         component={Screen.LabStackScreen}
         options={{
           tabBarLabel: 'LAB',
@@ -40,7 +40,7 @@ function MainScreen() {
         }}
       />
       <Tab.Screen
-        name="Profile"
+        name={MENU_NAMES.PROFILE}
         component={Screen.ProfileStackScreen}
         options={{
           tabBarLabel: 'PROFILE',
