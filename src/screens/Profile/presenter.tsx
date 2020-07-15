@@ -9,6 +9,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 //style
 //icon
 import Icon from 'react-native-vector-icons/Ionicons';
+import { MENU_NAMES } from '@app/lib';
 
 const Stack = createStackNavigator();
 /**
@@ -40,8 +41,7 @@ export const ProfileStackScreen = ({ navigation }) => {
         headerTitleStyle: styles.headerTitleStyle,
       }}>
       <Stack.Screen
-        name="Profile"
-        navigation={navigation}
+        name={MENU_NAMES.PROFILE}
         component={ProfileScreen}
         options={{
           headerLeft: () => (

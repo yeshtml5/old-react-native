@@ -29,7 +29,7 @@ function Component({  }: StackHeaderLeftButtonProps) {
         event.preventDefault();
         navigation.dispatch(
           CommonActions.navigate({
-            name: MENU_NAMES.OVERVIEW,
+            name: MENU_NAMES.TEMPLATE1,
           }),
         );
       }}>

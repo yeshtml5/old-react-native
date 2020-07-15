@@ -19,14 +19,18 @@ export type RouteType = {
     headerLeft?: ((props: StackHeaderLeftButtonProps) => React.ReactNode) | undefined;
   };
 };
+
 // 라우팅이름
 export const MENU_NAMES = {
-  MAIN: 'MAIN', //----------------------메인
-  HOME: 'HOME', //----------------------홈
-  OVERVIEW: 'OVERVIEW', //--------------오버뷰
-  PROFILE: 'PROFILE', //----------------프로필
-  MAP: 'MAP', //------------------------지도
-  CAMERA: 'CAMERA', //------------------카메라
+  MAIN: 'MAIN',
+  HOME: 'HOME',
+  OVERVIEW: 'OVERVIEW',
+  PROFILE: 'PROFILE',
+  MAP: 'MAP',
+  CAMERA: 'CAMERA',
+  LAB: 'LAB',
+  TEMPLATE1: 'TEMPLATE1',
+  TEMPLATE2: 'TEMPLATE2',
 };
 
 //라우팅
@@ -35,7 +39,61 @@ const routes = [
     name: MENU_NAMES.MAIN,
     component: Screen.MainScreen,
     options: {
-      title: '로그인',
+      title: '메인',
+      headerShown: true,
+      animationEnabled: false,
+    },
+  },
+  {
+    name: MENU_NAMES.HOME,
+    component: Screen.HomeStackScreen,
+    options: {
+      title: '메인',
+      headerShown: true,
+      animationEnabled: false,
+    },
+  },
+  {
+    name: MENU_NAMES.OVERVIEW,
+    component: Screen.OverviewStackScreen,
+    options: {
+      title: '메인',
+      headerShown: true,
+      animationEnabled: false,
+    },
+  },
+  {
+    name: MENU_NAMES.LAB,
+    component: Screen.LabStackScreen,
+    options: {
+      title: '메인',
+      headerShown: true,
+      animationEnabled: false,
+    },
+  },
+  {
+    name: MENU_NAMES.PROFILE,
+    component: Screen.ProfileStackScreen,
+    options: {
+      title: '메인',
+      headerShown: true,
+      animationEnabled: false,
+    },
+  },
+  {
+    name: MENU_NAMES.TEMPLATE1,
+    component: Screen.Template1,
+    options: {
+      title: '메인',
+      headerShown: true,
+      animationEnabled: false,
+    },
+  },
+  {
+    name: MENU_NAMES.TEMPLATE2,
+    component: Screen.TEMPLATE2,
+    options: {
+      title: '메인',
       headerShown: true,
       animationEnabled: false,
     },

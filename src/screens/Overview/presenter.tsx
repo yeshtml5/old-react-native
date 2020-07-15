@@ -48,7 +48,6 @@ export const OverviewStackScreen = ({ navigation }) => {
       }}>
       <Stack.Screen
         name={MENU_NAMES.OVERVIEW}
-        navigation={navigation}
         component={OverviewScreen}
         options={{
           title: 'HOME',
