@@ -12,12 +12,7 @@ import { MENU_NAMES } from '@app/lib';
 import { HomeButton } from '@app/components';
 const Stack = createStackNavigator();
 
-/**
- * @title dfdsfsd
- * @desc  HOME
- */
-
-const HomeScreen = () => {
+const Home = () => {
   const navigation = useNavigation();
   return (
     <React.Fragment>
@@ -32,23 +27,7 @@ const HomeScreen = () => {
     </React.Fragment>
   );
 };
-export default HomeScreen;
-
-/**
- *
- */
-export const HomeStackScreen = ({ navigation }) => {
-  return (
-    <Stack.Navigator
-      screenOptions={{
-        headerTitle: 'HOME',
-        headerStyle: styles.header,
-        headerTitleStyle: styles.headerTitleStyle,
-      }}>
-      <Stack.Screen name={MENU_NAMES.HOME} component={Screen.HomeScreen} />
-    </Stack.Navigator>
-  );
-};
+export default Home;
 
 const styles = StyleSheet.create({
   header: {

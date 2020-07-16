@@ -31,7 +31,7 @@ const LabScreen = () => {
         onPress={() => {
           navigation.dispatch(
             CommonActions.navigate({
-              name: MENU_NAMES.HOME,
+              name: MENU_NAMES.STACK,
             }),
           );
         }}>

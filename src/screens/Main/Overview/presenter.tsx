@@ -20,7 +20,7 @@ function Presenter({  }: Props) {
         },
       }}>
       <Stack.Screen
-        name="내정보"
+        name="오버뷰"
         component={Screen.Overview}
         options={{
           headerStyle: {

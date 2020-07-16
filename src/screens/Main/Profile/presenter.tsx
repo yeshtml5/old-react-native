@@ -15,14 +15,15 @@ function Presenter({  }: Props) {
       screenOptions={{
         headerTitleAlign: 'center',
         headerTitleStyle: {
-          ...defaultHeaderStyle,
           fontWeight: 'bold',
         },
       }}>
       <Stack.Screen
-        name="내정보"
+        name="내정보1"
         component={Screen.Profile}
         options={{
+          headerShown: true,
+          animationEnabled: true,
           headerStyle: {
             backgroundColor: THEME_COLOR,
           },

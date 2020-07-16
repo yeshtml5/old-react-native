@@ -22,6 +22,7 @@ export type RouteType = {
 
 // 라우팅이름
 export const MENU_NAMES = {
+  STACK: 'STACK',
   MAIN: 'MAIN',
   HOME: 'HOME',
   OVERVIEW: 'OVERVIEW',
@@ -36,17 +37,17 @@ export const MENU_NAMES = {
 //라우팅
 const routes = [
   {
-    name: MENU_NAMES.MAIN,
-    component: Screen.MainScreen,
+    name: MENU_NAMES.STACK,
+    component: Screen.Main,
     options: {
-      title: '메인',
-      headerShown: true,
+      title: '메인이다',
+      headerShown: false,
       animationEnabled: true,
     },
   },
   {
     name: MENU_NAMES.HOME,
-    component: Screen.HomeStackScreen,
+    component: Screen.Home,
     options: {
       title: '홈',
       headerShown: true,
@@ -55,7 +56,7 @@ const routes = [
   },
   {
     name: MENU_NAMES.OVERVIEW,
-    component: Screen.OverviewStackScreen,
+    component: Screen.Overview,
     options: {
       title: '오버뷰',
       headerShown: true,
@@ -64,7 +65,7 @@ const routes = [
   },
   {
     name: MENU_NAMES.LAB,
-    component: Screen.LabStackScreen,
+    component: Screen.Lab,
     options: {
       title: '랩',
       headerShown: true,

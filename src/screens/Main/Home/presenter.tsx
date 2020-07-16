@@ -4,6 +4,7 @@ import * as Screen from '@app/screens';
 import { defaultHeaderStyle } from '@app/lib';
 import { THEME_COLOR } from '@app/constpack';
 import { HomeButton } from '@app/components';
+import { MENU_NAMES } from '@app/lib';
 
 type Props = {};
 
@@ -20,13 +21,13 @@ function Presenter({  }: Props) {
         },
       }}>
       <Stack.Screen
-        name="내정보"
-        component={Screen.HOME}
+        name={MENU_NAMES.PROFILE}
+        component={Screen.Profile}
         options={{
           headerStyle: {
             backgroundColor: THEME_COLOR,
           },
-          headerRight: () => <HomeButton />,
+          headerTitle: () => <HomeButton />,
         }}
       />
     </Stack.Navigator>

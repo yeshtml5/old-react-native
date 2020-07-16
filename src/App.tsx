@@ -21,7 +21,7 @@ function App() {
   const Stack = createStackNavigator();
 
   // useState
-  const [defaultScreen, setDefaultScreen] = useState<string>(MENU_NAMES.MAIN);
+  const [defaultScreen, setDefaultScreen] = useState<string>(MENU_NAMES.STACK);
   const styleByHeaderTitle = {
     color: '#000000',
     backgroundColor: '#eeeeee',

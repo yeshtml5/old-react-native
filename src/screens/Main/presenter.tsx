@@ -15,7 +15,17 @@ const Tab = createBottomTabNavigator();
 function MainScreen() {
   //---------------------------
   return (
-    <Tab.Navigator>
+    <Tab.Navigator
+      tabBarOptions={{
+        labelStyle: {
+          fontSize: 12,
+          fontWeight: '600',
+          letterSpacing: -0.6,
+        },
+        style: {
+          backgroundColor: '#FFFFFF',
+        },
+      }}>
       <Tab.Screen name={MENU_NAMES.HOME} component={Home} />
       <Tab.Screen name={MENU_NAMES.OVERVIEW} component={Overview} />
       <Tab.Screen name={MENU_NAMES.LAB} component={Lab} />
