@@ -24,8 +24,8 @@ const HomeScreen = () => {
       <TouchableOpacity
         style={styles.button}
         onPress={() => {
-          navigation.navigate('Profile');
-          //  navigation.dispatch(StackActions.push(MENU_NAMES.OVERVIEW));
+          //navigation.navigate('Profile');
+          navigation.dispatch(StackActions.push(MENU_NAMES.LAB));
         }}>
         <Text>클릭</Text>
       </TouchableOpacity>

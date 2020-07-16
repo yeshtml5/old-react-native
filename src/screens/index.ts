@@ -2,7 +2,7 @@
 export { default as MainScreen } from './Main';
 
 //Home
-export { default as HomeScreen, HomeStackScreen } from './Home';
+export { default as HOME, HomeStackScreen } from './Home';
 
 //Drawer
 export { default as DrawerScreen } from './Drawer';
@@ -11,7 +11,7 @@ export { default as DrawerScreen } from './Drawer';
 export { default as Overview, OverviewStackScreen } from './Overview';
 
 //Lab
-export { default as LabScreen, LabStackScreen } from './Lab';
+export { default as Lab, LabStackScreen } from './Lab';
 
 //Profile
 export { default as Profile, ProfileStackScreen } from './Profile';

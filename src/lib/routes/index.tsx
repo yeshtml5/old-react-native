@@ -73,7 +73,7 @@ const routes = [
   },
   {
     name: MENU_NAMES.PROFILE,
-    component: Screen.ProfileStackScreen,
+    component: Screen.Profile,
     options: {
       title: '프로필',
       headerShown: true,

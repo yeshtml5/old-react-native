@@ -21,7 +21,7 @@ const ProfileScreen = ({ navigation }) => {
     <SafeAreaView>
       <Text>프로필페이지</Text>
       <Button
-        onPress={() => navigation.navigate('HomeScreen')}
+        onPress={() => navigation.navigate(MENU_NAMES.HOME)}
         title="Home 으로 이동"
         color="#ff0000"
         accessibilityLabel="Learn more about this purple button"
