@@ -5,7 +5,7 @@ import React from 'react';
 import * as Screen from '@app/screens';
 
 import { StackHeaderTitleProps, StackHeaderLeftButtonProps } from '@react-navigation/stack';
-import { BackButton, HomeButton } from '@app/components';
+import { BackButton, SettingButton, HomeButton } from '@app/components';
 //type
 export type RouteType = {
   name: string;
@@ -37,7 +37,7 @@ export const MENU_NAMES = {
 //라우팅
 const routes = [
   {
-    name: MENU_NAMES.STACK,
+    name: MENU_NAMES.MAIN,
     component: Screen.Main,
     options: {
       title: '메인이다',
@@ -61,6 +61,7 @@ const routes = [
       title: '오버뷰',
       headerShown: true,
       animationEnabled: true,
+      headerLeft: props => <BackButton {...props} />,
     },
   },
   {
@@ -70,6 +71,7 @@ const routes = [
       title: '랩',
       headerShown: true,
       animationEnabled: true,
+      headerRight: props => <SettingButton {...props} />,
     },
   },
   {
@@ -88,6 +90,7 @@ const routes = [
       title: '템플릿1',
       headerShown: true,
       animationEnabled: true,
+      headerLeft: props => <BackButton {...props} />,
     },
   },
   {

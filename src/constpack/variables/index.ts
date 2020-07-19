@@ -1,4 +1,4 @@
-export const THEME_COLOR = '#ff0099';
+export const THEME_COLOR = '#DDDDDD';
 
 export const FORM_DATA_INFO: {
   [key: string]: {

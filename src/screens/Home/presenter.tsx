@@ -19,8 +19,7 @@ const Home = () => {
       <TouchableOpacity
         style={styles.button}
         onPress={() => {
-          //navigation.navigate('Profile');
-          navigation.dispatch(StackActions.push(MENU_NAMES.LAB));
+          navigation.dispatch(StackActions.push(MENU_NAMES.MAIN));
         }}>
         <Text>클릭</Text>
       </TouchableOpacity>

@@ -1,13 +1,14 @@
 /**
  * @type Button
- * @desc 헤더에서 공통으로 사용되는 백버튼
+ * @desc 헤더에서 공통으로 사용되는 설정으로 가기 버튼
  */
 
 import React from 'react';
 import styled from 'styled-components/native';
 import { StackHeaderLeftButtonProps } from '@react-navigation/stack';
 import { CommonActions, useNavigation } from '@react-navigation/native';
-import { ico_back_button } from '@app/assets';
+import { MENU_NAMES } from '@app/lib';
+import { ico_settings } from '@app/assets';
 
 const StyledHomeButton = styled.TouchableOpacity`
   padding: 10px;
@@ -25,9 +26,13 @@ function Component({  }: StackHeaderLeftButtonProps) {
       activeOpacity={0.8}
       onPress={event => {
         event.preventDefault();
-        navigation.dispatch(CommonActions.goBack);
+        navigation.dispatch(
+          CommonActions.navigate({
+            name: MENU_NAMES.TEMPLATE1,
+          }),
+        );
       }}>
-      <Icon source={ico_back_button} />
+      <Icon source={ico_settings} />
     </StyledHomeButton>
   );
 }

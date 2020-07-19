@@ -3,7 +3,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import * as Screen from '@app/screens';
 import { defaultHeaderStyle } from '@app/lib';
 import { THEME_COLOR } from '@app/constpack';
-import { HomeButton } from '@app/components';
+import { MenuButton, SettingButton } from '@app/components';
 
 type Props = {};
 
@@ -15,7 +15,6 @@ function Presenter({  }: Props) {
       screenOptions={{
         headerTitleAlign: 'center',
         headerTitleStyle: {
-          ...defaultHeaderStyle,
           fontWeight: 'bold',
         },
       }}>
@@ -26,7 +25,8 @@ function Presenter({  }: Props) {
           headerStyle: {
             backgroundColor: THEME_COLOR,
           },
-          headerRight: () => <HomeButton />,
+          headerLeft: () => <MenuButton />,
+          headerRight: () => <SettingButton />,
         }}
       />
     </Stack.Navigator>
