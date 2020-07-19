@@ -1,54 +1,22 @@
 /**
- *
+ * @name Profile
  */
 import React from 'react';
-import { Button, View, Text, Image, StyleSheet, Alert } from 'react-native';
-//navigation
-import { NavigationContainer } from '@react-navigation/native';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-//screens
-import { Home, HomeScreen, DetatilsScreen } from '@screens/';
-//style
-//components
-import BottomTab from '@components/common/BottomTab';
-import Icon from 'react-native-vector-icons/FontAwesome';
-import Color from 'contexts/color.ts';
-const Tab = createBottomTabNavigator();
+import { Button, View, Text, Image, StyleSheet, SafeAreaView, Alert } from 'react-native';
+import Icon from 'react-native-vector-icons/Ionicons';
+import { MENU_NAMES } from '@app/lib';
 
-export default function Presenter() {
+const Profile = ({ navigation }) => {
   return (
-    <View style={styles.container}>
-      {/* 타이틀 */}
-      <Text style={styles.title}>Screen Main Title</Text>
-      {/* 이미지 */}
-      <Image style={styles.image} source={require('assets/images/img1.jpg')} />
-      {/* 버튼 */}
-      <BottomTab />
-    </View>
+    <SafeAreaView>
+      <Text>프로필페이지</Text>
+      <Button
+        onPress={() => navigation.navigate(MENU_NAMES.MAIN)}
+        title="MAIN"
+        color="#ff0000"
+        accessibilityLabel="Learn more about this purple button"
+      />
+    </SafeAreaView>
   );
-}
-
-//--------------------------------------------------------
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    flexDirection: 'column',
-  },
-  image: {
-    marginBottom: 20,
-    height: 400,
-    alignItems: 'stretch',
-    resizeMode: 'contain', //optional
-  },
-  title: {
-    fontSize: 20,
-  },
-  button: {
-    width: 200,
-    padding: 10,
-    color: Color.red,
-    backgroundColor: Color.black,
-  },
-});
+};
+export default Profile;

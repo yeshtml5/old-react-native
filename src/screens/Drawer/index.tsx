@@ -7,22 +7,20 @@
  */
 
 import React from 'react';
+import styled from 'styled-components/native';
 import { View, useWindowDimensions, StyleSheet } from 'react-native';
+import { CommonActions, useNavigation } from '@react-navigation/native';
 import { Drawer, Switch, Title, Avatar, Text, Caption } from 'react-native-paper';
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import {
   DrawerContentScrollView,
   DrawerItem,
   DrawerItemList,
   createDrawerNavigator,
 } from '@react-navigation/drawer';
-//screen
-import { HomeScreen, Profile } from '@screens/index';
-
-export type Props = {
-  navigation?: any;
-  url: string;
-};
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import * as Screen from '@app/screens';
+import { profile_me } from '@app/assets';
+import { MENU_NAMES } from '@app/lib';
 type Avatar = {
   url: string;
 };
@@ -30,21 +28,21 @@ type Avatar = {
 //create
 const DrawerNav = createDrawerNavigator();
 
-const DrawerScreen: React.FC<Props> = props => {
+function DrawerScreen() {
   //const
   const dimensions = useWindowDimensions();
-
   return (
     <DrawerNav.Navigator
       initialRouteName="HomeScreen"
       drawerContent={props => <DrawerContents {...props} />}
       //#스타일링 drawerStyle={{ backgroundColor: '#FF0099', width: 300 }}
       overlayColor="transparent">
-      <DrawerNav.Screen name="Home" component={HomeScreen} />
+      <DrawerNav.Screen name="Main" component={Screen.MainScreen} />
+
       {/* <DrawerNav.Screen name="Profile" component={Profile} /> */}
     </DrawerNav.Navigator>
   );
-};
+}
 export default DrawerScreen;
 
 /**
@@ -58,26 +56,23 @@ export const DrawerContents: React.FC<Props> = ({ navigation, ...props }) => {
       <DrawerContentScrollView style={styles.scrollView} {...props}>
         {/* 상단유틸영역 */}
         <View style={{ flexDirection: 'row', marginTop: 15 }}>
-          <Avatar.Image
-            source={{
-              url:
-                'https://avatars1.githubusercontent.com/u/20413597?s=400&u=d0529ee06fbfdc0701664b262ac2e38936b420ee&v=4',
-            }}
-            size={50}
-          />
+          <Avatar.Image source={profile_me} size={50} />
           <View style={{ marginLeft: 20, flexDirection: 'column' }}>
             <Title>wanhwi.son</Title>
             <Caption>yeshtml5@gmail.com</Caption>
           </View>
         </View>
         {/* 네비게이션영역 */}
-        <DrawerItemList {...props} />
+        {/* <DrawerItemList {...props} /> */}
         <Drawer.Section style={styles.items}>
           <DrawerItem
             label="Home"
             onPress={() => {
-              alert('alert');
-              navigation.jumpTo('Home');
+              navigation.dispatch(
+                CommonActions.navigate({
+                  name: MENU_NAMES.HOME,
+                }),
+              );
               navigation.closeDrawer();
             }}
             icon={({ color, size }) => <Icon name="home-outline" size={size} color={color} />}
@@ -91,21 +86,22 @@ export const DrawerContents: React.FC<Props> = ({ navigation, ...props }) => {
             icon={({ color, size }) => <Icon name="apps" size={size} color={color} />}
           />
           <DrawerItem
+            label="Lab"
+            onPress={() => {
+              navigation.jumpTo('Lab');
+              navigation.closeDrawer();
+            }}
+            icon={({ color, size }) => (
+              <Icon name="language-javascript" size={size} color={color} />
+            )}
+          />
+          <DrawerItem
             label="Profile"
             onPress={() => {
               navigation.jumpTo('Profile');
               navigation.closeDrawer();
             }}
             icon={({ color, size }) => <Icon name="account" size={size} color={color} />}
-          />
-          <DrawerItem
-            label="Lab"
-            onPress={() => {
-              navigation.closeDrawer();
-            }}
-            icon={({ color, size }) => (
-              <Icon name="language-javascript" size={size} color={color} />
-            )}
           />
           <DrawerItem
             label="Map"

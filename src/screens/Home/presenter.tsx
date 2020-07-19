@@ -2,92 +2,31 @@
  *
  */
 import React from 'react';
-import { StyleSheet } from 'react-native';
-//navigation
+import { TouchableOpacity, Text, StyleSheet } from 'react-native';
+import { useNavigation, StackActions, CommonActions } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-//components
-import BottomTab from '@components/common/BottomTab';
-//context
-import COLORS from 'contexts/color';
-//screens
-import { Overview, Template1 } from '@screens/index';
-//icon
 import Icon from 'react-native-vector-icons/Ionicons';
 
+import * as Screen from '@app/screens';
+import { MENU_NAMES } from '@app/lib';
+import { HomeButton } from '@app/components';
 const Stack = createStackNavigator();
-const DetailsStack = createStackNavigator();
 
-/**
- * @title dfdsfsd
- * @desc  HOME
- */
-const HomeScreen = () => {
-  return <BottomTab />;
-};
-export default HomeScreen;
-
-/**
- *
- */
-export const HomeStackScreen = ({ navigation }) => {
+const Home = () => {
+  const navigation = useNavigation();
   return (
-    <Stack.Navigator
-      screenOptions={{
-        headerTitle: 'HOME',
-        headerStyle: styles.header,
-        headerTitleStyle: styles.headerTitleStyle,
-      }}>
-      <Stack.Screen
-        name="HomeScreen"
-        navigation={navigation}
-        component={Template1}
-        options={{
-          title: 'HOME',
-          headerLeft: () => (
-            <Icon.Button
-              name="ios-menu"
-              size={25}
-              color="#000000"
-              backgroundColor="transparent"
-              onPress={() => navigation.openDrawer()}
-            />
-          ),
-        }}
-      />
-      <Stack.Screen
-        name="Overview"
-        navigation={navigation}
-        component={Overview}
-        options={{
-          title: 'Overview',
-          headerLeft: () => (
-            <Icon.Button
-              name="ios-menu"
-              size={25}
-              color="#000000"
-              backgroundColor="transparent"
-              onPress={() => navigation.openDrawer()}
-            />
-          ),
-        }}
-      />
-      {/* <Stack.Screen
-        name="Overview"
-        component={Overview}
-        options={{
-          title: 'PREV',
-        }}
-      />
-      <Stack.Screen
-        name="Home1"
-        component={Template1}
-        options={{
-          title: 'PREV',
-        }}
-      /> */}
-    </Stack.Navigator>
+    <React.Fragment>
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => {
+          navigation.dispatch(StackActions.push(MENU_NAMES.MAIN));
+        }}>
+        <Text>클릭</Text>
+      </TouchableOpacity>
+    </React.Fragment>
   );
 };
+export default Home;
 
 const styles = StyleSheet.create({
   header: {
@@ -100,5 +39,9 @@ const styles = StyleSheet.create({
   headerTitleStyle: {
     color: '#111111',
     fontWeight: '400',
+  },
+  button: {
+    padding: 30,
+    backgroundColor: '#ff0000',
   },
 });
