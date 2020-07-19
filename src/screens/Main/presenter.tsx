@@ -2,53 +2,34 @@ import React, { useEffect } from 'react';
 import { View } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-
+import { MENU_NAMES } from '@app/lib';
 import * as Screen from '@app/screens';
+
+import Home from './Home';
+import Profile from './Profile';
+import Lab from './Lab';
+import Overview from './Overview';
 
 const Tab = createBottomTabNavigator();
 
 function MainScreen() {
   //---------------------------
   return (
-    <Tab.Navigator>
-      <Tab.Screen
-        name="HomeScreen"
-        component={Screen.HomeStackScreen}
-        options={{
-          tabBarLabel: 'HOME',
-          tabBarIcon: ({ color }) => <MaterialCommunityIcons name="home" color={color} size={20} />,
-        }}
-      />
-      <Tab.Screen
-        name="Overview"
-        component={Screen.OverviewStackScreen}
-        options={{
-          tabBarLabel: 'OVERVIEW',
-          tabBarIcon: ({ color }) => (
-            <MaterialCommunityIcons name="apple" color={color} size={20} />
-          ),
-        }}
-      />
-      <Tab.Screen
-        name="Lab"
-        component={Screen.LabStackScreen}
-        options={{
-          tabBarLabel: 'LAB',
-          tabBarIcon: ({ color }) => (
-            <MaterialCommunityIcons name="briefcase" color={color} size={20} />
-          ),
-        }}
-      />
-      <Tab.Screen
-        name="Profile"
-        component={Screen.ProfileStackScreen}
-        options={{
-          tabBarLabel: 'PROFILE',
-          tabBarIcon: ({ color }) => (
-            <MaterialCommunityIcons name="account" color={color} size={20} />
-          ),
-        }}
-      />
+    <Tab.Navigator
+      tabBarOptions={{
+        labelStyle: {
+          fontSize: 12,
+          fontWeight: '600',
+          letterSpacing: -0.6,
+        },
+        style: {
+          backgroundColor: '#FFFFFF',
+        },
+      }}>
+      <Tab.Screen name={MENU_NAMES.HOME} component={Home} />
+      <Tab.Screen name={MENU_NAMES.OVERVIEW} component={Overview} />
+      <Tab.Screen name={MENU_NAMES.LAB} component={Lab} />
+      <Tab.Screen name={MENU_NAMES.PROFILE} component={Profile} />
     </Tab.Navigator>
   );
 }

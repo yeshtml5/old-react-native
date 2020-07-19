@@ -8,3 +8,10 @@ export const relativeWidth = (percentage?: number) => {
     return Dimensions.get('screen').width * 0.7;
   }
 };
+
+export const defaultHeaderStyle =
+  Platform.OS === 'ios'
+    ? {
+        fontSize: 18,
+      }
+    : {};
