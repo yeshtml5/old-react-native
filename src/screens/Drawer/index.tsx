@@ -21,26 +21,33 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import * as Screen from '@app/screens';
 import { profile_me } from '@app/assets';
 import { MENU_NAMES } from '@app/lib';
+
 type Avatar = {
   url: string;
 };
-
+type Props = {};
 //create
 const DrawerNav = createDrawerNavigator();
 
 function DrawerScreen() {
+  console.log('test');
   //const
   const dimensions = useWindowDimensions();
   return (
-    <DrawerNav.Navigator
-      initialRouteName="HomeScreen"
-      drawerContent={props => <DrawerContents {...props} />}
-      //#스타일링 drawerStyle={{ backgroundColor: '#FF0099', width: 300 }}
-      overlayColor="transparent">
-      <DrawerNav.Screen name="Main" component={Screen.MainScreen} />
-
-      {/* <DrawerNav.Screen name="Profile" component={Profile} /> */}
+    <DrawerNav.Navigator initialRouteName={MENU_NAMES.MAIN}>
+      <Drawer.Screen name={MENU_NAMES.HOME} component={Screen.Main} />
+      <Drawer.Screen name={MENU_NAMES.OVERVIEW} component={Screen.Overview} />
     </DrawerNav.Navigator>
+
+    // <DrawerNav.Navigator
+    //   initialRouteName="HomeScreen"
+    //   drawerContent={props => <DrawerContents {...props} />}
+    //   //#스타일링 drawerStyle={{ backgroundColor: '#FF0099', width: 300 }}
+    //   overlayColor="transparent">
+    //   <DrawerNav.Screen name="Main" component={Screen.Stack} />
+
+    //   <DrawerNav.Screen name="Profile" component={Profile} />
+    // </DrawerNav.Navigator>
   );
 }
 export default DrawerScreen;
@@ -50,7 +57,8 @@ export default DrawerScreen;
  * @param props
  */
 
-export const DrawerContents: React.FC<Props> = ({ navigation, ...props }) => {
+export const DrawerContents = ({  }: Props) => {
+  const navigation = useNavigation();
   return (
     <View style={styles.container}>
       <DrawerContentScrollView style={styles.scrollView} {...props}>

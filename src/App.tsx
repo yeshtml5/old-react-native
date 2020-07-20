@@ -7,7 +7,7 @@
 
 import React, { useState } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import { DrawerScreen } from '@app/screens';
+import { Draw } from '@app/screens';
 import { createStackNavigator } from '@react-navigation/stack';
 import { routes, defaultHeaderStyle, MENU_NAMES } from '@app/lib';
 
@@ -28,7 +28,7 @@ function App() {
   };
   return (
     <NavigationContainer>
-      {/* <DrawerScreen /> */}
+      {/* <Draw /> */}
       <Stack.Navigator
         initialRouteName={defaultScreen}
         screenOptions={{

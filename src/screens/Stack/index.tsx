@@ -1,4 +1,4 @@
 /**
- * @name Home
+ * @name Stack
  */
 export { default } from './container';
