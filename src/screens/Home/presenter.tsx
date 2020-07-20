@@ -7,7 +7,7 @@ import { useNavigation, StackActions, CommonActions } from '@react-navigation/na
 import { createStackNavigator } from '@react-navigation/stack';
 import Icon from 'react-native-vector-icons/Ionicons';
 
-import * as Screen from '@app/screens';
+import { Template1 } from '@app/screens';
 import { MENU_NAMES } from '@app/lib';
 import { HomeButton } from '@app/components';
 const Stack = createStackNavigator();

@@ -42,12 +42,12 @@ const LabScreen = () => {
         onPress={() => {
           navigation.dispatch(
             CommonActions.navigate({
-              name: MENU_NAMES.HOME,
+              name: MENU_NAMES.MAIN,
               params: { currentTab: MENU_NAMES.PROFILE },
             }),
           );
         }}>
-        <Text>프로필-currentTab이동</Text>
+        <Text>프로필-OVERVIEW</Text>
       </StyledButton>
       <StyledButton
         onPress={() => {

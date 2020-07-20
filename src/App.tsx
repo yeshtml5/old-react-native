@@ -7,26 +7,17 @@
 
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import { Draw } from '@app/screens';
-import { MENU_NAMES } from '@app/lib';
-import { createDrawerNavigator } from '@react-navigation/drawer';
-import * as Screen from '@app/screens';
+import Drawer from '@app/screens/Drawer';
 
 // disableYellowBox
 console.disableYellowBox = true;
-const Drawer = createDrawerNavigator();
+
 export type Props = {};
 
-function App() {
-  // useState
-
+function App({  }: Props) {
   return (
     <NavigationContainer>
-      {/* <Draw /> */}
-      <Drawer.Navigator initialRouteName={MENU_NAMES.STACK}>
-        <Drawer.Screen name={MENU_NAMES.STACK} component={Screen.Stack} />
-        {/* <Drawer.Screen name="Notifications" component={NotificationsScreen} /> */}
-      </Drawer.Navigator>
+      <Drawer />
     </NavigationContainer>
   );
 }

@@ -3,8 +3,6 @@ export { default as Stack } from './Stack';
 export { default as Main } from './Main';
 //Home
 export { default as Home } from './Home';
-//Drawer
-export { default as Draw } from './Drawer';
 //Overview
 export { default as Overview } from './Overview';
 //Lab

@@ -28,7 +28,7 @@ function Presenter({  }: Props) {
   //---------------------------
   return (
     <Tab.Navigator
-      //  initialRouteName={data?.currentTab}
+      initialRouteName={data?.currentTab}
       screenOptions={({ route }) => ({
         tabBarIcon: ({ focused }) => {
           switch (route.name) {
