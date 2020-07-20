@@ -14,7 +14,6 @@ import { Drawer, Switch, Title, Avatar, Text, Caption } from 'react-native-paper
 import {
   DrawerContentScrollView,
   DrawerItem,
-  DrawerItemList,
   createDrawerNavigator,
 } from '@react-navigation/drawer';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -29,28 +28,19 @@ type Props = {};
 //create
 const DrawerNav = createDrawerNavigator();
 
-function DrawerScreen() {
+function Presenter() {
   console.log('test');
-  //const
-  const dimensions = useWindowDimensions();
   return (
-    <DrawerNav.Navigator initialRouteName={MENU_NAMES.MAIN}>
-      <Drawer.Screen name={MENU_NAMES.HOME} component={Screen.Main} />
-      <Drawer.Screen name={MENU_NAMES.OVERVIEW} component={Screen.Overview} />
+    <DrawerNav.Navigator
+      //   drawerContent={props => <DrawerContents {...props} />}
+      //#스타일링 drawerStyle={{ backgroundColor: '#FF0099', width: 300 }}
+      overlayColor="transparent">
+      <DrawerNav.Screen name="Main" component={Screen.Stack} />
+      {/* <DrawerNav.Screen name="Profile" component={Profile} /> */}
     </DrawerNav.Navigator>
-
-    // <DrawerNav.Navigator
-    //   initialRouteName="HomeScreen"
-    //   drawerContent={props => <DrawerContents {...props} />}
-    //   //#스타일링 drawerStyle={{ backgroundColor: '#FF0099', width: 300 }}
-    //   overlayColor="transparent">
-    //   <DrawerNav.Screen name="Main" component={Screen.Stack} />
-
-    //   <DrawerNav.Screen name="Profile" component={Profile} />
-    // </DrawerNav.Navigator>
   );
 }
-export default DrawerScreen;
+export default Presenter;
 
 /**
  *

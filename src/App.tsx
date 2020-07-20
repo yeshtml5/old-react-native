@@ -28,8 +28,8 @@ function App() {
   };
   return (
     <NavigationContainer>
-      {/* <Draw /> */}
-      <Stack.Navigator
+      <Draw />
+      {/* <Stack.Navigator
         initialRouteName={defaultScreen}
         screenOptions={{
           headerStyle: styleByHeaderTitle,
@@ -47,7 +47,7 @@ function App() {
             />
           );
         })}
-      </Stack.Navigator>
+      </Stack.Navigator> */}
     </NavigationContainer>
   );
 }

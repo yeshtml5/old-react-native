@@ -37,6 +37,15 @@ export const MENU_NAMES = {
 //라우팅
 const routes = [
   {
+    name: MENU_NAMES.STACK,
+    component: Screen.Stack,
+    options: {
+      title: 'Stack',
+      headerShown: false,
+      animationEnabled: true,
+    },
+  },
+  {
     name: MENU_NAMES.MAIN,
     component: Screen.Main,
     options: {
