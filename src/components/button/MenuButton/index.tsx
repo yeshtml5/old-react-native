@@ -6,8 +6,7 @@
 import React from 'react';
 import styled from 'styled-components/native';
 import { StackHeaderLeftButtonProps } from '@react-navigation/stack';
-import { CommonActions, useNavigation } from '@react-navigation/native';
-import { MENU_NAMES } from '@app/lib';
+import { DrawerActions, useNavigation } from '@react-navigation/native';
 import { ico_menu } from '@app/assets';
 
 const StyledHomeButton = styled.TouchableOpacity`
@@ -26,11 +25,7 @@ function Component({  }: StackHeaderLeftButtonProps) {
       activeOpacity={0.8}
       onPress={event => {
         event.preventDefault();
-        navigation.dispatch(
-          CommonActions.navigate({
-            name: MENU_NAMES.TEMPLATE1,
-          }),
-        );
+        navigation.dispatch(DrawerActions.openDrawer());
       }}>
       <Icon source={ico_menu} />
     </StyledHomeButton>

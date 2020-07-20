@@ -1,4 +1,4 @@
 /**
- * @name Home
+ * @name Drawer
  */
 export { default } from './container';
