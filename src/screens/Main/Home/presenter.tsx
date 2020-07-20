@@ -4,7 +4,6 @@ import * as Screen from '@app/screens';
 import { defaultHeaderStyle } from '@app/lib';
 import { THEME_COLOR } from '@app/constpack';
 import { MenuButton, SettingButton } from '@app/components';
-import { MENU_NAMES } from '@app/lib';
 
 type Props = {};
 

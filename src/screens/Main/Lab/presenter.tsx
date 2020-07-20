@@ -3,7 +3,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import * as Screen from '@app/screens';
 import { defaultHeaderStyle } from '@app/lib';
 import { THEME_COLOR } from '@app/constpack';
-import { HomeButton, SettingButton } from '@app/components';
+import { MenuButton, SettingButton } from '@app/components';
 
 type Props = {};
 
@@ -26,6 +26,7 @@ function Presenter({  }: Props) {
           headerStyle: {
             backgroundColor: THEME_COLOR,
           },
+          headerLeft: () => <MenuButton />,
           headerRight: () => <SettingButton />,
         }}
       />

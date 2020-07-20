@@ -28,20 +28,20 @@ type Props = {};
 //create
 const DrawerNav = createDrawerNavigator();
 
-function Presenter() {
+export default function Presenter() {
   console.log('test');
   return (
     <DrawerNav.Navigator
-      //   drawerContent={props => <DrawerContents {...props} />}
+      drawerContent={props => <DrawerContents {...props} />}
       //#스타일링 drawerStyle={{ backgroundColor: '#FF0099', width: 300 }}
+      initialRouteName={MENU_NAMES.STACK}
       overlayColor="transparent">
-      <DrawerNav.Screen name="Main" component={Screen.Stack} />
+      {/* <DrawerNav.Screen name={MENU_NAMES.STACK} component={Screen.STACK} /> */}
+
       {/* <DrawerNav.Screen name="Profile" component={Profile} /> */}
     </DrawerNav.Navigator>
   );
 }
-export default Presenter;
-
 /**
  *
  * @param props

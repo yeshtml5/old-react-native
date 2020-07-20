@@ -5,49 +5,28 @@
  * https://reactnavigation.org/docs/drawer-navigator
  */
 
-import React, { useState } from 'react';
+import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { Draw } from '@app/screens';
-import { createStackNavigator } from '@react-navigation/stack';
-import { routes, defaultHeaderStyle, MENU_NAMES } from '@app/lib';
+import { MENU_NAMES } from '@app/lib';
+import { createDrawerNavigator } from '@react-navigation/drawer';
+import * as Screen from '@app/screens';
 
 // disableYellowBox
 console.disableYellowBox = true;
-
+const Drawer = createDrawerNavigator();
 export type Props = {};
 
 function App() {
-  //stack
-  const Stack = createStackNavigator();
-
   // useState
-  const [defaultScreen, setDefaultScreen] = useState<string>(MENU_NAMES.MAIN);
-  const styleByHeaderTitle = {
-    color: '#000000',
-    backgroundColor: '#eeeeee',
-  };
+
   return (
     <NavigationContainer>
-      <Draw />
-      {/* <Stack.Navigator
-        initialRouteName={defaultScreen}
-        screenOptions={{
-          headerStyle: styleByHeaderTitle,
-          headerTitleAlign: 'center',
-          headerTitleStyle: Object.assign(defaultHeaderStyle, styleByHeaderTitle),
-        }}>
-        {routes.map((route, index) => {
-          const { name, component, options } = route;
-          return (
-            <Stack.Screen
-              key={`${name}_${index}`}
-              name={name}
-              component={component}
-              options={options}
-            />
-          );
-        })}
-      </Stack.Navigator> */}
+      {/* <Draw /> */}
+      <Drawer.Navigator initialRouteName={MENU_NAMES.STACK}>
+        <Drawer.Screen name={MENU_NAMES.STACK} component={Screen.Stack} />
+        {/* <Drawer.Screen name="Notifications" component={NotificationsScreen} /> */}
+      </Drawer.Navigator>
     </NavigationContainer>
   );
 }

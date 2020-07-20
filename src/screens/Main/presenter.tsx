@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import styled from 'styled-components/native';
 import { View } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -10,23 +11,38 @@ import Profile from './Profile';
 import Lab from './Lab';
 import Overview from './Overview';
 import { useRoute } from '@react-navigation/native';
+import { ico_house, ico_center_focus, ico_mac, ico_account } from '@app/assets';
 
-type Props={}
+type Props = {};
 type RouteParamsType = { currentTab?: string };
 
-const Tab = createBottomTabNavigator();
+const IconHome = styled.Image`
+  width: 20px;
+  height: 20px;
+`;
 
-function Presenter({}:Props) {
+function Presenter({  }: Props) {
+  const Tab = createBottomTabNavigator();
   const route = useRoute();
   const data = route.params as RouteParamsType;
   //---------------------------
   return (
     <Tab.Navigator
-      initialRouteName={data?.currentTab}
+      //  initialRouteName={data?.currentTab}
       screenOptions={({ route }) => ({
         tabBarIcon: ({ focused }) => {
-          let icon;
-          return icon;
+          switch (route.name) {
+            case MENU_NAMES.HOME:
+              return <IconHome source={focused ? ico_house : ico_account} />;
+            case MENU_NAMES.OVERVIEW:
+              return <IconHome source={focused ? ico_center_focus : ico_center_focus} />;
+            case MENU_NAMES.LAB:
+              return <IconHome source={focused ? ico_mac : ico_mac} />;
+            case MENU_NAMES.PROFILE:
+              return <IconHome source={focused ? ico_account : ico_account} />;
+            default:
+              return null;
+          }
         },
       })}
       tabBarOptions={{
