@@ -9,4 +9,5 @@ react-native/typescript/apollo/graphql
 
 ## 라이브러리
 
-- UI : <react-native-paper>
+- UI : react-native-paper
+- Toast : react-native-tiny-toast

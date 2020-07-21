@@ -27,9 +27,11 @@ export const MENU_NAMES = {
   HOME: 'HOME',
   OVERVIEW: 'OVERVIEW',
   PROFILE: 'PROFILE',
-  MAP: 'MAP',
-  CAMERA: 'CAMERA',
   LAB: 'LAB',
+  MAP: 'MAP',
+  SETTING: 'SETTING',
+  CODE: 'CODE',
+  CAMERA: 'CAMERA',
   TEMPLATE1: 'TEMPLATE1',
   TEMPLATE2: 'TEMPLATE2',
 };
@@ -90,6 +92,27 @@ const routes = [
       title: '프로필',
       headerShown: true,
       animationEnabled: true,
+    },
+  },
+  {
+    name: MENU_NAMES.SETTING,
+    component: Screen.Setting,
+    options: {
+      title: '설정',
+      headerShown: true,
+      animationEnabled: true,
+      headerLeft: props => <BackButton {...props} />,
+    },
+  },
+  {
+    name: MENU_NAMES.CODE,
+    component: Screen.Code,
+    options: {
+      title: 'Code',
+      headerShown: true,
+      animationEnabled: true,
+      headerLeft: props => <BackButton {...props} />,
+      headerRight: props => <HomeButton {...props} />,
     },
   },
   {

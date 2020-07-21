@@ -19,7 +19,7 @@ function Presenter({  }: Props) {
         },
       }}>
       <Stack.Screen
-        name="내정보1"
+        name="PROFILE"
         component={Screen.Profile}
         options={{
           headerShown: true,

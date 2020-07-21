@@ -1,16 +1,12 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import styled from 'styled-components/native';
-import { View } from 'react-native';
+import { useRoute } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import { MENU_NAMES } from '@app/lib';
-import * as Screen from '@app/screens';
-
 import Home from './Home';
 import Profile from './Profile';
 import Lab from './Lab';
 import Overview from './Overview';
-import { useRoute } from '@react-navigation/native';
 import { ico_house, ico_center_focus, ico_mac, ico_account } from '@app/assets';
 
 type Props = {};
