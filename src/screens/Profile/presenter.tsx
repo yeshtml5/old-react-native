@@ -6,16 +6,10 @@ import { Button, View, Text, Image, StyleSheet, SafeAreaView, Alert } from 'reac
 import Icon from 'react-native-vector-icons/Ionicons';
 import { MENU_NAMES } from '@app/lib';
 
-const Profile = ({ navigation }) => {
+const Profile = () => {
   return (
     <SafeAreaView>
       <Text>프로필페이지</Text>
-      <Button
-        onPress={() => navigation.navigate(MENU_NAMES.MAIN)}
-        title="MAIN"
-        color="#ff0000"
-        accessibilityLabel="Learn more about this purple button"
-      />
     </SafeAreaView>
   );
 };

@@ -30,10 +30,10 @@ const Presenter = () => {
     <SafeAreaView>
       <StyledButton
         onPress={() => {
-          Toast.show('LAB');
-          navigation.dispatch(StackActions.push(MENU_NAMES.MAIN, { currentTab: MENU_NAMES.LAB }));
+          Toast.show('CODE');
+          navigation.dispatch(StackActions.push(MENU_NAMES.CODE));
         }}>
-        <Text>LAB</Text>
+        <Text>CODE</Text>
       </StyledButton>
       <StyledButton
         onPress={() => {

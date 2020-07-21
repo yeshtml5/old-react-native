@@ -27,8 +27,16 @@ function Component({  }: StackHeaderLeftButtonProps) {
       onPress={event => {
         event.preventDefault();
         navigation.dispatch(
-          CommonActions.navigate({
-            name: MENU_NAMES.TEMPLATE1,
+          CommonActions.reset({
+            index: 0,
+            routes: [
+              {
+                name: MENU_NAMES.MAIN,
+                params: {
+                  currentTab: MENU_NAMES.OVERVIEW,
+                },
+              },
+            ],
           }),
         );
       }}>
