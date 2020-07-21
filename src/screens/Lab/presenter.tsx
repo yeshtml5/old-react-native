@@ -3,6 +3,7 @@
  */
 import React from 'react';
 import styled from 'styled-components/native';
+import Toast from 'react-native-tiny-toast';
 import { CommonActions, useNavigation } from '@react-navigation/native';
 import { Button, SafeAreaView, View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -29,6 +30,7 @@ const LabScreen = () => {
     <SafeAreaView>
       <StyledButton
         onPress={() => {
+          Toast.show('HOME');
           navigation.dispatch(
             CommonActions.navigate({
               name: MENU_NAMES.STACK,
