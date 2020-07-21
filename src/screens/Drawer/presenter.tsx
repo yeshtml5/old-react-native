@@ -21,7 +21,6 @@ type Props = {};
 const DrawerNav = createDrawerNavigator();
 
 export default function Presenter({  }: Props) {
-  console.log('test');
   return (
     <DrawerNav.Navigator initialRouteName={MENU_NAMES.STACK}>
       <DrawerNav.Screen name={MENU_NAMES.STACK} component={Screen.Stack} />

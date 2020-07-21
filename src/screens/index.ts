@@ -1,15 +1,17 @@
 // Main & Stack
 export { default as Stack } from './Stack';
 export { default as Main } from './Main';
-//Home
+// Home
 export { default as Home } from './Home';
-//Overview
+// Overview
 export { default as Overview } from './Overview';
-//Lab
+// Lab
 export { default as Lab } from './Lab';
-//Profile
+// Profile
 export { default as Profile } from './Profile';
-//temp
+// Setting
+export { default as Setting } from './Setting';
+// temp
 export { default as Template1 } from './temp/Template1';
 export { default as Template2 } from './temp/Template2';
 

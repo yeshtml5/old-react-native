@@ -25,6 +25,7 @@ function Presenter({  }: Props) {
   const Tab = createBottomTabNavigator();
   const route = useRoute();
   const data = route.params as RouteParamsType;
+  console.log(data)
   //---------------------------
   return (
     <Tab.Navigator

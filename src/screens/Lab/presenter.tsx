@@ -5,9 +5,8 @@ import React from 'react';
 import styled from 'styled-components/native';
 import Toast from 'react-native-tiny-toast';
 import { CommonActions, useNavigation } from '@react-navigation/native';
-import { Button, SafeAreaView, View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { SafeAreaView, View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
-import Icon from 'react-native-vector-icons/Ionicons';
 import { MENU_NAMES } from '@app/lib';
 
 const Stack = createStackNavigator();
@@ -21,10 +20,10 @@ const StyledButton = styled.TouchableOpacity`
   align-items: center;
 `;
 /**
- * @title dfdsfsd
+ * @title
  * @desc  HOME
  */
-const LabScreen = () => {
+const Presenter = () => {
   const navigation = useNavigation();
   return (
     <SafeAreaView>
@@ -94,48 +93,4 @@ const LabScreen = () => {
     </SafeAreaView>
   );
 };
-export default LabScreen;
-
-/**
- *
- */
-export const LabStackScreen = ({ navigation }) => {
-  return (
-    <Stack.Navigator
-      screenOptions={{
-        headerTitle: '랩실',
-        headerStyle: styles.header,
-        headerTitleStyle: styles.headerTitleStyle,
-      }}>
-      <Stack.Screen
-        name={MENU_NAMES.LAB}
-        component={LabScreen}
-        options={{
-          title: 'HOME',
-          headerLeft: () => (
-            <Icon.Button
-              name="ios-menu"
-              size={25}
-              color="#000000"
-              backgroundColor="transparent"
-              onPress={() => navigation.openDrawer()}
-            />
-          ),
-        }}
-      />
-    </Stack.Navigator>
-  );
-};
-const styles = StyleSheet.create({
-  header: {
-    elevation: 100,
-    borderBottomWidth: 0,
-    borderBottomColor: '#111',
-    backgroundColor: '#E1E1E1',
-    //backgroundColor: 'transparent',
-  },
-  headerTitleStyle: {
-    color: '#111111',
-    fontWeight: '400',
-  },
-});
+export default Presenter;
