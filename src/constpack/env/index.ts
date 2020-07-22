@@ -9,3 +9,4 @@ const API_URL: ServerURL = {
   beta: '',
   development: '',
 };
+export default {};

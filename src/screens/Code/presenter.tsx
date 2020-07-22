@@ -2,9 +2,10 @@ import React from 'react';
 import styled from 'styled-components/native';
 import { View, Text } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
-// depth
+// contents
 import AsyncAwait from './async-await';
 import AsyncStroage from './async-storage';
+import UseForm from './useForm';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 type Props = {
@@ -23,6 +24,8 @@ function Presenter({ contentsName }: Props) {
         return <AsyncAwait />;
       case 'AsyncStroage':
         return <AsyncStroage />;
+      case 'UseForm':
+        return <UseForm />;
       default:
         return <Text>선택된메뉴가없습니다.</Text>;
     }
