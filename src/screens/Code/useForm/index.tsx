@@ -9,6 +9,7 @@ import { TouchableWithoutFeedback, Keyboard, Alert, Dimensions } from 'react-nat
 import { useForm } from 'react-hook-form';
 import { TextInput, View, Text } from 'react-native';
 import Toast from 'react-native-tiny-toast';
+import { AnimatedPlaceholder } from '@app/components';
 import { FORM_DATA_INFO } from '@app/constpack';
 
 type Props = {};
@@ -40,6 +41,7 @@ const StyledTextInput = styled.TextInput`
 `;
 const SubmitButton = styled.TouchableOpacity`
   width: 100%;
+  margin-bottom: 20px;
   padding: 20px 0;
   background-color: #111;
   color: #ffffff;
@@ -51,27 +53,21 @@ const SubmitText = styled.Text`
 
 export default function UseForm({  }: Props) {
   const [inputFields, setInputFields] = useState({ email: '', password: '' });
-  const { email, password } = inputFields;
+  const { phone, email, password } = inputFields;
   // 유효성체크
   const { NAME, EMAIL, PHONE, PASSWORD } = FORM_DATA_INFO;
   //useForm
   const { register, setValue, handleSubmit, errors, getValues } = useForm<FormData>({
-    defaultValues: {
-      email: 'test@domain.com',
-    },
+    defaultValues: {},
   });
 
   const onSubmit = params => {
-    console.log(params);
     Toast.show(JSON.stringify(params, null, 1));
   };
 
   useEffect(() => {
-    register(
-      { name: 'phone' },
-      { required: true, pattern: /^((01[1|6|7|8|9])[1-9]+[0-9]{6,7})|(010[1-9][0-9]{7})$/ },
-    );
-    register({ name: 'email' });
+    register({ name: 'phone' }, { required: true, pattern: PHONE.PATTERN });
+    register({ name: 'email' }, { required: true, pattern: PHONE.PATTERN });
     register({ name: 'password' });
   }, [register]);
 
@@ -83,20 +79,24 @@ export default function UseForm({  }: Props) {
           <Container>
             <InputContainer>
               <TwoContentWrap>
-                <StyledTextInput
+                <AnimatedPlaceholder
+                  keyboardType={'number-pad'}
+                  value={inputFields.phone}
+                  placeholder={'인증번호 6자리를 입력하세요.'}
                   onChangeText={(text: string) => {
-                    setValue('phone', text);
+                    setValue('phone', text.toLowerCase().trim(), true);
+                    setInputFields({ ...inputFields, phone: text.toLowerCase().trim() });
                   }}
-                  placeholder="PHONE"
-                  maxLength={10}
                 />
               </TwoContentWrap>
             </InputContainer>
             <InputContainer>
               <TwoContentWrap>
                 <StyledTextInput
+                  value={inputFields.email}
                   onChangeText={(text: string) => {
-                    setValue('email', text);
+                    setValue('email', text, true);
+                    setInputFields({ ...inputFields, email: text });
                   }}
                   placeholder="E-MAIL"
                   maxLength={20}
@@ -119,7 +119,7 @@ export default function UseForm({  }: Props) {
             </SubmitButton>
             <SubmitButton
               onPress={() => {
-                Toast.show(JSON.stringify(getValues(), null, 1));
+                Toast.show(JSON.stringify(getValues(), null, 1), { duration: 100 });
                 //  console.log(getValues());
               }}>
               <SubmitText>TEST</SubmitText>
