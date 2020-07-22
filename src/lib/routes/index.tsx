@@ -3,9 +3,9 @@
  */
 import React from 'react';
 import * as Screen from '@app/screens';
-
 import { StackHeaderTitleProps, StackHeaderLeftButtonProps } from '@react-navigation/stack';
 import { BackButton, SettingButton, HomeButton } from '@app/components';
+
 //type
 export type RouteType = {
   name: string;
