@@ -1,5 +1,6 @@
 export const THEME_COLOR = '#DDDDDD';
 
+// FROM등록시 유효성검사
 export const FORM_DATA_INFO: {
   [key: string]: {
     NAME: string;
