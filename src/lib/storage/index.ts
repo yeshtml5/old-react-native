@@ -1,3 +1,8 @@
+/**
+ * @name React Async Storage
+ * @desc 로컬스토리지처럼 React-native에서 스토리지를 생성,수정,삭제가 가능합니다
+ * @reference https://react-native-community.github.io/async-storage/docs/usage
+ */
 import AsyncStorage from '@react-native-community/async-storage';
 
 class Storage {

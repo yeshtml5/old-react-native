@@ -1,6 +1,6 @@
 # react-native
 
-react-native/typescript/apollo/graphql
+- react-native/typescript/apollo/graphql
 
 ## 참고페이지
 
