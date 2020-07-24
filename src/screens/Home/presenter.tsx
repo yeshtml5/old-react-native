@@ -18,7 +18,7 @@ const Home = () => {
         onPress={() => {
           navigation.dispatch(StackActions.push(MENU_NAMES.CODE));
         }}>
-        <Text>CODE</Text>
+        <Text>CODE1</Text>
       </TouchableOpacity>
     </React.Fragment>
   );
@@ -28,6 +28,6 @@ export default Home;
 const styles = StyleSheet.create({
   button: {
     padding: 30,
-    backgroundColor: '#ff0000',
+    backgroundColor: '#CCCCCC',
   },
 });

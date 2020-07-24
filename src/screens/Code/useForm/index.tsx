@@ -82,7 +82,7 @@ export default function UseForm({  }: Props) {
                 <AnimatedPlaceholder
                   keyboardType={'number-pad'}
                   value={inputFields.phone}
-                  placeholder={'인증번호 6자리를 입력하세요.'}
+                  placeholder={'인증번호 6자리를 입력하세요.1'}
                   onChangeText={(text: string) => {
                     setValue('phone', text.toLowerCase().trim(), true);
                     setInputFields({ ...inputFields, phone: text.toLowerCase().trim() });

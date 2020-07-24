@@ -1,11 +1,13 @@
 import React from 'react';
 import styled from 'styled-components/native';
-import { View, Text } from 'react-native';
+import { View, Text, Alert } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
 // contents
 import AsyncAwait from './async-await';
 import AsyncStroage from './async-storage';
 import UseForm from './useForm';
+import WebView from './webview';
+
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 type Props = {
@@ -14,7 +16,7 @@ type Props = {
 
 const Container = styled.SafeAreaView`
   flex: 1;
-  background-color: #ccc;
+  background-color: #ffffff;
 `;
 function Presenter({ contentsName }: Props) {
   // 선택된컨턴츠에따라 분기처리해서보여준다
@@ -26,6 +28,8 @@ function Presenter({ contentsName }: Props) {
         return <AsyncStroage />;
       case 'UseForm':
         return <UseForm />;
+      case 'WebView':
+        return <WebView />;
       default:
         return <Text>선택된메뉴가없습니다.</Text>;
     }
