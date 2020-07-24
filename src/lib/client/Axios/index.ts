@@ -1,16 +1,13 @@
 import axios, { AxiosInstance, AxiosResponse } from 'axios';
 
-import { GW_API_BASE_URL, API_REQUEST_TIMEOUT, OAUTH_BASIC_KEY } from '@dosoo/constpack';
-
 class Client {
   private axios: AxiosInstance;
-  private token: string | object = OAUTH_BASIC_KEY;
+  private token: string | object = '';
 
   constructor() {
     this.axios = axios.create({
-      baseURL: GW_API_BASE_URL,
-      timeout: API_REQUEST_TIMEOUT,
-
+      baseURL: 'GW_API_BASE_URL',
+      timeout: 1000,
       headers: {
         'Content-Type': 'application/json',
         Authorization: this.token,
@@ -25,7 +22,7 @@ class Client {
             return accessToken;
           },
         }
-      : OAUTH_BASIC_KEY;
+      : '';
   }
 
   get<T>(path: string, payload?: any) {
