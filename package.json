@@ -14,7 +14,8 @@
     "clean": "npm run clean:yarn && npm run pod && npm run reset && npm run clean:metro",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
-    "start": "react-native start"
+    "start": "react-native start",
+    "apk": "cd android && ./gradlew assembleRelease"
   },
   "dependencies": {
     "@react-native-community/async-storage": "^1.11.0",

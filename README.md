@@ -38,6 +38,15 @@
 
 ## Android
 
+```
+//apk
+  ./gradlew assembleRelease
+
+//aab
+//android/app/build/outputs/bundle/release/app.aab
+  ./gradlew bundleRelease
+```
+
 - 참고페이지 <https://reactnative.dev/docs/signed-apk-android>
 
 ## Splash
