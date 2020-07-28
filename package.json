@@ -14,10 +14,12 @@
     "clean": "npm run clean:yarn && npm run pod && npm run reset && npm run clean:metro",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
-    "start": "react-native start"
+    "start": "react-native start",
+    "apk": "cd android && ./gradlew assembleRelease"
   },
   "dependencies": {
     "@react-native-community/async-storage": "^1.11.0",
+    "@react-native-community/geolocation": "^2.0.2",
     "@react-native-community/masked-view": "^0.1.10",
     "@react-navigation/bottom-tabs": "^5.5.2",
     "@react-navigation/drawer": "^5.8.4",
@@ -26,6 +28,7 @@
     "@react-navigation/stack": "^5.6.2",
     "@types/styled-components": "^5.1.0",
     "axios": "^0.19.2",
+    "moment": "^2.27.0",
     "react": "16.11.0",
     "react-hook-form": "^6.0.8",
     "react-native": "0.62.2",
@@ -46,6 +49,7 @@
   "devDependencies": {
     "@babel/core": "^7.6.2",
     "@babel/runtime": "^7.6.2",
+    "@bam.tech/react-native-make": "^3.0.0",
     "@react-native-community/eslint-config": "^0.0.5",
     "@types/jest": "^26.0.0",
     "@types/react": "^16.9.38",
