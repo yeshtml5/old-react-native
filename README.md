@@ -24,6 +24,16 @@
   rm -rf /usr/local/var/run/watchman && brew uninstall watchman && brew install watchman
 ```
 
+> Build Error
+
+##### android
+
+- Uninstall Node Modules
+- Clean Gradle (cd android && gradlew clean) 혹은 _sudo ./gradlew clean_
+- now install back your modules (yarn install)
+
+//ios
+
 # Build & Deploy
 
 ## Android

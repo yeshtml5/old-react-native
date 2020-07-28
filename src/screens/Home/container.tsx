@@ -13,15 +13,17 @@ export type GeolocationInfo = {
   longitude: number;
   time?: string;
 };
+export type WeatherList = {};
 
-export default function Container({  }: Props) {
+export default function Container() {
   const API_KEY = 'd8eb6e9f63011a29c3567236144c3937';
-  const [weatherList, setWeatherList] = useState(null);
+  const [weatherList, setWeatherList] = useState<WeatherList | null>(null);
   const [positionInfo, setPositionInfo] = useState<GeolocationInfo>({
     latitude: -1,
     longitude: -1,
     time: '',
   });
+  //37.409451, 126.936010
   const getCurrentPosition = () => {
     Geolocation.getCurrentPosition(info => {
       const { coords, timestamp } = info;
@@ -35,7 +37,6 @@ export default function Container({  }: Props) {
         `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${API_KEY}&units=metric`,
       )
         .then(function(response) {
-          //network 정보 => json으로 변경
           return response.json();
         })
         .then(function(json) {
