@@ -4,13 +4,17 @@
 import React from 'react';
 import { TouchableOpacity, Text, StyleSheet } from 'react-native';
 import { useNavigation, StackActions } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
 import { MENU_NAMES } from '@app/lib';
+import { GeolocationInfo } from './container';
 
-const Stack = createStackNavigator();
+type Props = {
+  weatherList: {};
+  positionInfo: GeolocationInfo;
+};
 
-const Home = () => {
+const Presenter = ({ weatherList, positionInfo }: Props) => {
   const navigation = useNavigation();
+
   return (
     <React.Fragment>
       <TouchableOpacity
@@ -18,12 +22,12 @@ const Home = () => {
         onPress={() => {
           navigation.dispatch(StackActions.push(MENU_NAMES.CODE));
         }}>
-        <Text>CODE1</Text>
+        <Text>CODE</Text>
       </TouchableOpacity>
     </React.Fragment>
   );
 };
-export default Home;
+export default Presenter;
 
 const styles = StyleSheet.create({
   button: {
