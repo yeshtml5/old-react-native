@@ -1,21 +1,19 @@
 // Main & Stack
+export { default as Stack } from './Stack';
 export { default as Main } from './Main';
-export { default as HomeStack } from './Main/Home';
-export { default as LabStack } from './Main/Lab';
-export { default as ProfileStack } from './Main/Profile';
-export { default as OverViewStack } from './Main/Overview';
-
-//Home
+// Home
 export { default as Home } from './Home';
-//Drawer
-export { default as Draw } from './Drawer';
-//Overview
+// Overview
 export { default as Overview } from './Overview';
-//Lab
+// Lab
 export { default as Lab } from './Lab';
-//Profile
+// Profile
 export { default as Profile } from './Profile';
-//temp
+// Setting
+export { default as Setting } from './Setting';
+// Code
+export { default as Code } from './Code';
+// temp
 export { default as Template1 } from './temp/Template1';
 export { default as Template2 } from './temp/Template2';
 

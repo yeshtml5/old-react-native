@@ -3,9 +3,9 @@
  */
 import React from 'react';
 import * as Screen from '@app/screens';
-
 import { StackHeaderTitleProps, StackHeaderLeftButtonProps } from '@react-navigation/stack';
 import { BackButton, SettingButton, HomeButton } from '@app/components';
+
 //type
 export type RouteType = {
   name: string;
@@ -27,15 +27,26 @@ export const MENU_NAMES = {
   HOME: 'HOME',
   OVERVIEW: 'OVERVIEW',
   PROFILE: 'PROFILE',
-  MAP: 'MAP',
-  CAMERA: 'CAMERA',
   LAB: 'LAB',
+  MAP: 'MAP',
+  SETTING: 'SETTING',
+  CODE: 'CODE',
+  CAMERA: 'CAMERA',
   TEMPLATE1: 'TEMPLATE1',
   TEMPLATE2: 'TEMPLATE2',
 };
 
 //라우팅
 const routes = [
+  {
+    name: MENU_NAMES.STACK,
+    component: Screen.Stack,
+    options: {
+      title: 'Stack',
+      headerShown: false,
+      animationEnabled: true,
+    },
+  },
   {
     name: MENU_NAMES.MAIN,
     component: Screen.Main,
@@ -81,6 +92,27 @@ const routes = [
       title: '프로필',
       headerShown: true,
       animationEnabled: true,
+    },
+  },
+  {
+    name: MENU_NAMES.SETTING,
+    component: Screen.Setting,
+    options: {
+      title: '설정',
+      headerShown: true,
+      animationEnabled: true,
+      headerLeft: props => <BackButton {...props} />,
+    },
+  },
+  {
+    name: MENU_NAMES.CODE,
+    component: Screen.Code,
+    options: {
+      title: 'Code',
+      headerShown: true,
+      animationEnabled: true,
+      headerLeft: props => <BackButton {...props} />,
+      headerRight: props => <HomeButton {...props} />,
     },
   },
   {
