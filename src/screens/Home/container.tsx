@@ -32,7 +32,6 @@ export default function Container() {
       );
       if (granted == PermissionsAndroid.RESULTS.GRANTED) {
         // alert('위치정보 사용을 허가하셨습니다.');
-        getCurrentPosition();
       } else {
         alert('위치정보 사용을 거부하셨습니다.\n앱의 기능사용이 제한됩니다.');
       }
@@ -64,7 +63,7 @@ export default function Container() {
   useEffect(() => {
     (async () => {
       const result = await requestLocationPermission();
-      console.log(result);
+      const position = await getCurrentPosition();
     })();
   }, []);
   return weatherList && <Presenter weatherList={weatherList} positionInfo={positionInfo} />;
