@@ -18,7 +18,6 @@
     "apk": "cd android && ./gradlew assembleRelease"
   },
   "dependencies": {
-    "@react-native-community/async-storage": "^1.11.0",
     "@react-native-community/geolocation": "^2.0.2",
     "@react-native-community/masked-view": "^0.1.10",
     "@react-navigation/bottom-tabs": "^5.5.2",
@@ -44,6 +43,7 @@
     "react-native-tiny-toast": "^1.0.7",
     "react-native-vector-icons": "^6.6.0",
     "react-native-webview": "^10.3.2",
+    "react-timer-mixin": "^0.13.4",
     "styled-components": "^5.1.1",
     "unstated-next": "^1.1.0"
   },

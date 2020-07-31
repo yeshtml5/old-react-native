@@ -13,6 +13,8 @@
 - Toast : react-native-tiny-toast <https://www.npmjs.com/package/react-native-tiny-toast>
 - Form : react-hook-form <https://react-hook-form.com/kr/get-started/>
 - Webview : react-native-webview <https://github.com/react-native-community/react-native-webview>
+- permissions : react-native-permissions <https://github.com/react-native-community/react-native-permissions>
+  > ios Info.plist, Podfile edit
 - app generator : react-native-make <https://github.com/bamlab/react-native-make>
   > npm install --save-dev @bam.tech/react-native-make
 
@@ -29,7 +31,7 @@
 ##### android
 
 - Uninstall Node Modules
-- Clean Gradle (cd android && gradlew clean) 혹은 _sudo ./gradlew clean_
+- Clean Gradle (cd android && gradlew clean) 혹은 sudo ./gradlew clean
 - now install back your modules (yarn install)
 
 //ios
@@ -42,9 +44,17 @@
 //apk
   ./gradlew assembleRelease
 
-//aab
-//android/app/build/outputs/bundle/release/app.aab
+//aab ( android/app/build/outputs/bundle/release/app.aab )
   ./gradlew bundleRelease
+```
+
+## IOS
+
+```
+sudo rm Podfile.lock
+sudo rm -r [프로젝트명].xcworkspace
+sudo rm -r Pods
+pod install
 ```
 
 - 참고페이지 <https://reactnative.dev/docs/signed-apk-android>
@@ -52,3 +62,12 @@
 ## Splash
 
 - <https://github.com/crazycodeboy/react-native-splash-screen>
+
+# Debug
+
+- Android : CMD + M
+- IOS : CMD + D
+
+# Emulator
+
+> adb devices -l

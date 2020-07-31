@@ -8,13 +8,14 @@ import { useNavigation, StackActions } from '@react-navigation/native';
 import { MENU_NAMES } from '@app/lib';
 import { GeolocationInfo } from './container';
 import { ScrollView } from 'react-native-gesture-handler';
-
+import {error,log} from '@app/lib'
 type Props = {
   weatherList?: any;
   positionInfo?: GeolocationInfo;
 };
 
 const Presenter = ({ weatherList, positionInfo }: Props) => {
+  log('손지안')
   const { description, icon, main } = weatherList.weather[0];
   const navigation = useNavigation();
   return (
@@ -30,7 +31,7 @@ const Presenter = ({ weatherList, positionInfo }: Props) => {
         <View>
           <Image
             style={styles.icon}
-            source={{ uri: `http://openweathermap.org/img/wn/${icon}@2x.png` }}
+            source={{ uri: `https://openweathermap.org/img/wn/${icon}@2x.png` }}
           />
           <Text style={styles.title}>{main}</Text>
           <Text style={styles.title1}>{description}</Text>
