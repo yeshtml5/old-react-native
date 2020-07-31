@@ -10,7 +10,7 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 import { MENU_NAMES } from '@app/lib';
 
 type Props = {
-  webViewUrl: string;
+  webViewUrl?: string;
 };
 
 export default function Webview({ webViewUrl = 'https://map.kakao.com' }: Props) {
