@@ -53,6 +53,14 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string> </string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string> </string>
+	<key>NSLocationUsageDescription</key>
+	<string> </string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string> </string>
 	<key>UIAppFonts</key>
 	  <array>
 		<string>AntDesign.ttf</string>

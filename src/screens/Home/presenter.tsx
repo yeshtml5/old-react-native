@@ -30,7 +30,7 @@ const Presenter = ({ weatherList, positionInfo }: Props) => {
         <View>
           <Image
             style={styles.icon}
-            source={{ uri: `http://openweathermap.org/img/wn/${icon}@2x.png` }}
+            source={{ uri: `https://openweathermap.org/img/wn/${icon}@2x.png` }}
           />
           <Text style={styles.title}>{main}</Text>
           <Text style={styles.title1}>{description}</Text>
