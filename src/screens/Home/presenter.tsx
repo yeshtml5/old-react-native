@@ -8,14 +8,13 @@ import { useNavigation, StackActions } from '@react-navigation/native';
 import { MENU_NAMES } from '@app/lib';
 import { GeolocationInfo } from './container';
 import { ScrollView } from 'react-native-gesture-handler';
-import {error,log} from '@app/lib'
+
 type Props = {
   weatherList?: any;
   positionInfo?: GeolocationInfo;
 };
 
 const Presenter = ({ weatherList, positionInfo }: Props) => {
-  log('손지안')
   const { description, icon, main } = weatherList.weather[0];
   const navigation = useNavigation();
   return (

@@ -14,6 +14,7 @@
 - Form : react-hook-form <https://react-hook-form.com/kr/get-started/>
 - Webview : react-native-webview <https://github.com/react-native-community/react-native-webview>
 - permissions : react-native-permissions <https://github.com/react-native-community/react-native-permissions>
+- axios-hooks : axios-hooks <https://www.npmjs.com/package/axios-hooks>
   > ios Info.plist, Podfile edit
 - app generator : react-native-make <https://github.com/bamlab/react-native-make>
   > npm install --save-dev @bam.tech/react-native-make

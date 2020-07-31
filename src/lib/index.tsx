@@ -6,7 +6,7 @@ export * from './util';
 export * from './util/log';
 
 // 클라이언트(axios,apollo)
-//  export { AxiosClient, ApolloClient } from './client';
+export { AxiosClient } from './client';
 
 // Async Storage
 export { default as storage } from './storage';
