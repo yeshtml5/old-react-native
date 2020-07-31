@@ -15,42 +15,6 @@ import { FORM_DATA_INFO } from '@app/constpack';
 type Props = {};
 type Fields = 'name' | 'email' | 'phone' | 'password';
 
-const ScrollWrap = styled.KeyboardAvoidingView`
-  flex: 1;
-`;
-const Container = styled.View`
-  flex: 1;
-  background-color: #ffffff;
-  justify-content: center;
-  align-items: center;
-`;
-const InputContainer = styled.View`
-  width: 100%;
-  margin-bottom: 40px;
-  padding: 0 32px;
-`;
-const TwoContentWrap = styled.View`
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: flex-start;
-`;
-const StyledTextInput = styled.TextInput`
-  width: 100%;
-  padding: 10px 0;
-  border: 1px solid #cccccc;
-`;
-const SubmitButton = styled.TouchableOpacity`
-  width: 100%;
-  margin-bottom: 20px;
-  padding: 20px 0;
-  background-color: #111;
-  color: #ffffff;
-`;
-const SubmitText = styled.Text`
-  color: #ffffff;
-  text-align: center;
-`;
-
 export default function UseForm({  }: Props) {
   const [inputFields, setInputFields] = useState({ email: '', password: '' });
   const { phone, email, password } = inputFields;
@@ -130,3 +94,38 @@ export default function UseForm({  }: Props) {
     </TouchableWithoutFeedback>
   );
 }
+const ScrollWrap = styled.KeyboardAvoidingView`
+  flex: 1;
+`;
+const Container = styled.View`
+  flex: 1;
+  background-color: #ffffff;
+  justify-content: center;
+  align-items: center;
+`;
+const InputContainer = styled.View`
+  width: 100%;
+  margin-bottom: 40px;
+  padding: 0 32px;
+`;
+const TwoContentWrap = styled.View`
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+`;
+const StyledTextInput = styled.TextInput`
+  width: 100%;
+  padding: 10px 0;
+  border: 1px solid #cccccc;
+`;
+const SubmitButton = styled.TouchableOpacity`
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 20px 0;
+  background-color: #111;
+  color: #ffffff;
+`;
+const SubmitText = styled.Text`
+  color: #ffffff;
+  text-align: center;
+`;

@@ -7,6 +7,7 @@ import AsyncAwait from './async-await';
 import AsyncStroage from './async-storage';
 import UseForm from './useForm';
 import WebView from './webview';
+import Unsplash from './unsplash';
 
 import { SafeAreaView } from 'react-native-safe-area-context';
 
@@ -30,6 +31,8 @@ function Presenter({ contentsName }: Props) {
         return <UseForm />;
       case 'WebView':
         return <WebView />;
+      case 'Unsplash':
+        return <Unsplash />;
       default:
         return <Text>선택된메뉴가없습니다.</Text>;
     }
