@@ -1,20 +1,25 @@
 /**
  *
  */
-import React from 'react';
+import React, { Dispatch } from 'react';
 import styled from 'styled-components/native';
-import { TouchableOpacity, View, Text, Image, StyleSheet } from 'react-native';
+import { TouchableOpacity, View, Text, Image, StyleSheet, Alert } from 'react-native';
 import { useNavigation, StackActions } from '@react-navigation/native';
 import { MENU_NAMES } from '@app/lib';
 import { GeolocationInfo } from './container';
 import { ScrollView } from 'react-native-gesture-handler';
 
+import { useGlobalState, useGlobalDispatch } from '@app/contexts';
 type Props = {
   weatherList?: any;
   positionInfo?: GeolocationInfo;
 };
 
 const Presenter = ({ weatherList, positionInfo }: Props) => {
+  // context
+  const context = useGlobalState();
+  const dispatch = useGlobalDispatch();
+
   const { description, icon, main } = weatherList.weather[0];
   const navigation = useNavigation();
   return (
@@ -23,9 +28,12 @@ const Presenter = ({ weatherList, positionInfo }: Props) => {
         <TouchableOpacity
           style={styles.button}
           onPress={() => {
-            navigation.dispatch(StackActions.push(MENU_NAMES.CODE));
+            //     navigation.dispatch(StackActions.push(MENU_NAMES.CODE));
+            dispatch({ type: 'UPDATE', auth: 'test' });
+            //     Alert.alert('code',globalContext)
+            console.log(context);
           }}>
-          <Text>CODE</Text>
+          <Text>CODE unsplash</Text>
         </TouchableOpacity>
         <View>
           <Image
@@ -38,9 +46,9 @@ const Presenter = ({ weatherList, positionInfo }: Props) => {
         </View>
 
         <View>
-          <Text>위도 {positionInfo&&positionInfo.latitude&& positionInfo.latitude}</Text>
-            <Text>경도 {positionInfo?.longitude}</Text>
-        <Text>{positionInfo?.time}</Text>
+          <Text>위도 {positionInfo && positionInfo.latitude && positionInfo.latitude}</Text>
+          <Text>경도 {positionInfo.longitude}</Text>
+          <Text>{positionInfo.time}</Text>
         </View>
       </ScrollView>
     </React.Fragment>

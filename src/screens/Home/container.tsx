@@ -4,18 +4,14 @@
 
 import React, { useState, useEffect } from 'react';
 import { Platform, Alert } from 'react-native';
-import {
-  requestMultiple,
-  checkMultiple,
-  request,
-  PERMISSIONS,
-  RESULTS,
-} from 'react-native-permissions';
+import { checkMultiple, request, PERMISSIONS, RESULTS } from 'react-native-permissions';
 import moment from 'moment';
 import Geolocation from '@react-native-community/geolocation';
 import Presenter from './presenter';
+import { useGlobalState, useGlobalDispatch } from '@app/contexts';
 
 type Props = {};
+
 export type GeolocationInfo = {
   latitude: any;
   longitude: number;
@@ -24,7 +20,13 @@ export type GeolocationInfo = {
 export type WeatherList = {};
 
 export default function Container() {
+  // const
   const API_KEY = 'd8eb6e9f63011a29c3567236144c3937';
+  // context
+  const globalContext = useGlobalState();
+  const globalDispatch = useGlobalDispatch();
+
+  // useState
   const [weatherList, setWeatherList] = useState<WeatherList | null>(null);
   const [positionInfo, setPositionInfo] = useState<GeolocationInfo>({
     latitude: -1,
@@ -37,7 +39,7 @@ export default function Container() {
       : [PERMISSIONS.ANDROID.ACCESS_FINE_LOCATION, PERMISSIONS.ANDROID.ACCESS_COARSE_LOCATION];
   };
 
-  //37.409451, 126.936010
+  // 37.409451, 126.936010
   const getCurrentPosition = async () => {
     await Geolocation.getCurrentPosition(
       info => {
@@ -60,7 +62,7 @@ export default function Container() {
               Alert.alert('[토큰에러', json.message);
               setWeatherList(null);
             } else {
-              console.log(json);
+              //console.log(json);
               setWeatherList(json);
             }
           });
@@ -95,5 +97,13 @@ export default function Container() {
       // const position = await getCurrentPosition();
     })();
   }, []);
-  return weatherList && <Presenter weatherList={weatherList} positionInfo={positionInfo} />;
+  return (
+    weatherList && (
+      <Presenter
+        globalDispatch={globalDispatch}
+        weatherList={weatherList}
+        positionInfo={positionInfo}
+      />
+    )
+  );
 }

@@ -8,17 +8,18 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import Drawer from '@app/screens/Drawer';
+import { GlobalContextProvider } from '@app/contexts';
 
 // disableYellowBox
 console.disableYellowBox = true;
 
-export type Props = {};
-
-function App({  }: Props) {
+function App() {
   return (
-    <NavigationContainer>
-      <Drawer />
-    </NavigationContainer>
+    <GlobalContextProvider>
+      <NavigationContainer>
+        <Drawer />
+      </NavigationContainer>
+    </GlobalContextProvider>
   );
 }
 export default App;

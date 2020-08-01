@@ -8,8 +8,7 @@ import { CommonActions, useNavigation } from '@react-navigation/native';
 import { SafeAreaView, View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { MENU_NAMES } from '@app/lib';
-
-const Stack = createStackNavigator();
+import { useGlobalState } from '@app/contexts';
 
 const StyledButton = styled.TouchableOpacity`
   width: 50%;
@@ -24,11 +23,14 @@ const StyledButton = styled.TouchableOpacity`
  * @desc  HOME
  */
 const Presenter = () => {
+  // context
+  const context = useGlobalState();
   const navigation = useNavigation();
   return (
     <SafeAreaView>
       <StyledButton
         onPress={() => {
+          console.log(context);
           Toast.show('HOME');
           navigation.dispatch(
             CommonActions.navigate({
