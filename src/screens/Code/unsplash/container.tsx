@@ -4,7 +4,6 @@
 
 import React, { useEffect, useState } from 'react';
 import Presenter from './presenter';
-import useAxios from 'axios-hooks';
 import Unsplash from 'unsplash-js/native';
 
 const unsplash = new Unsplash({
@@ -12,28 +11,36 @@ const unsplash = new Unsplash({
 });
 
 export default function Container() {
+  // const
+  const LIST_COUNT_PER_PAGE = 10;
   // useState
-  const [searchQuery, setSearchQuery] = useState('sea');
-  const [unsplashData, SetUnsplashData] = useState<object | undefined>(undefined);
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const [searchQuery, setSearchQuery] = useState('coffee');
+  const [unsplashData, SetUnsplashData] = useState<object | null>(null);
 
-  const onChange = () => {
-    console.log(searchQuery);
+  // getNextPage
+  const getNextPageContents = () => {
+    setCurrentPage(currentPage + 1);
   };
+
+  // useEffect
   useEffect(() => {
     unsplash.search
-      .photos(searchQuery, 1, 20)
+      .photos(searchQuery, currentPage, LIST_COUNT_PER_PAGE)
       .then(res => res.json())
       .then(json => {
         SetUnsplashData(json.results);
       });
-  }, [searchQuery]);
+  }, [searchQuery, currentPage]);
 
   return (
-    <Presenter
-      onChange={onChange}
-      searchQuery={searchQuery}
-      setSearchQuery={setSearchQuery}
-      unsplashData={unsplashData}
-    />
+    unsplashData && (
+      <Presenter
+        searchQuery={searchQuery}
+        setSearchQuery={setSearchQuery}
+        unsplashData={unsplashData}
+        getNextPageContents={getNextPageContents}
+      />
+    )
   );
 }

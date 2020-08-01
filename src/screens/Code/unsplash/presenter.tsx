@@ -1,15 +1,10 @@
 /**
- * @name Profile
+ * unSplash 리스트및 구현
  */
-import React, { useState } from 'react';
+import React, { useRef } from 'react';
 import styled from 'styled-components/native';
-import { ScrollView, SafeAreaView, TextInput, Linking, View, Text } from 'react-native';
+import { ScrollView, SafeAreaView, TextInput, Linking, View, TouchableOpacity } from 'react-native';
 import { Avatar, Button, Card, Title, Paragraph } from 'react-native-paper';
-import { log } from '@app/lib';
-import Icon from 'react-native-vector-icons/Ionicons';
-import { MENU_NAMES } from '@app/lib';
-import Image from 'react-native-scalable-image';
-import { TouchableOpacity } from 'react-native-gesture-handler';
 
 type Unsplash = {
   id: string;
@@ -22,22 +17,23 @@ type Unsplash = {
     name: string | null;
     bio: string | null;
   };
-  links: {};
+  links: {
+    download: string;
+  };
 };
 type Props = {
-  onChange: Function;
   unsplashData: Unsplash[];
   searchQuery: string;
   setSearchQuery: (query: string) => void;
+  getNextPageContents: () => void;
 };
-const Presenter = ({ onChange, searchQuery, setSearchQuery, unsplashData }: Props) => {
-  if (!unsplashData) return null;
-  // useState
+const Presenter = ({ getNextPageContents, searchQuery, setSearchQuery, unsplashData }: Props) => {
+  // useRef
+  const scrollViewRef = useRef(null);
 
+  // create
   const createUnsplash = () => {
-    console.log(unsplashData[0]);
     return unsplashData.map((list, idx) => {
-      //log(list);
       return (
         <Card
           style={{ marginBottom: 10, backgroundColor: '#FFF' }}
@@ -56,8 +52,7 @@ const Presenter = ({ onChange, searchQuery, setSearchQuery, unsplashData }: Prop
             )}
           />
           <Card.Content>
-            {/* <Avatar source={{ uri: list.user.profile_image.small }} /> */}
-            <Paragraph>{list.description}</Paragraph>
+            <Paragraph style={{ paddingBottom: 10 }}>{list.description}</Paragraph>
           </Card.Content>
           <Card.Cover source={{ uri: list.urls.regular }} />
           <Card.Actions>
@@ -71,6 +66,7 @@ const Presenter = ({ onChange, searchQuery, setSearchQuery, unsplashData }: Prop
               {list.tags.map((tag, idx) => {
                 return (
                   <TagButton
+                    key={`${tag.title}-${idx}`}
                     onPress={() => {
                       setSearchQuery(tag.title);
                     }}>
@@ -93,11 +89,20 @@ const Presenter = ({ onChange, searchQuery, setSearchQuery, unsplashData }: Prop
         onSubmitEditing={event => {
           setSearchQuery(event.nativeEvent.text);
         }}
-        onChangeText={text => {
-          //      setSearchQuery(text);
-        }}
       />
-      <ScrollView>{createUnsplash()}</ScrollView>
+      <ScrollView
+        ref={scrollViewRef}
+        scrollEventThrottle={16}
+        onScroll={({ nativeEvent }) => {
+          const { contentOffset, layoutMeasurement, contentSize } = nativeEvent;
+          const marginToBottom = 10 + layoutMeasurement.height;
+          if (contentOffset.y + marginToBottom >= contentSize.height) {
+            getNextPageContents();
+            scrollViewRef.current.scrollTo({ y: 0, animated: false });
+          }
+        }}>
+        {createUnsplash()}
+      </ScrollView>
     </SafeAreaView>
   );
 };
@@ -109,5 +114,5 @@ const TagButton = styled.TouchableOpacity`
 const TagText = styled.Text`
   padding: 5px 5px;
   color: #111;
-  text-decoration: underline;
+  font-size: 10px;
 `;
