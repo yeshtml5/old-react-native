@@ -12,16 +12,28 @@ const unsplash = new Unsplash({
 });
 
 export default function Container() {
+  // useState
+  const [searchQuery, setSearchQuery] = useState('sea');
   const [unsplashData, SetUnsplashData] = useState<object | undefined>(undefined);
 
+  const onChange = () => {
+    console.log(searchQuery);
+  };
   useEffect(() => {
     unsplash.search
-      .photos('sea', 1, 20, { orientation: 'portrait' })
+      .photos(searchQuery, 1, 20)
       .then(res => res.json())
       .then(json => {
         SetUnsplashData(json.results);
       });
-  }, []);
+  }, [searchQuery]);
 
-  return <Presenter unsplashData={unsplashData} />;
+  return (
+    <Presenter
+      onChange={onChange}
+      searchQuery={searchQuery}
+      setSearchQuery={setSearchQuery}
+      unsplashData={unsplashData}
+    />
+  );
 }
