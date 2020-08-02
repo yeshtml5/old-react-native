@@ -2,9 +2,23 @@
  *
  */
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Presenter from './presenter';
+import { useRoute } from '@react-navigation/native';
 
-export default function Container() {
-  return <Presenter contentsName={'Unsplash'} />;
+
+function Container() {
+  // route
+  const route = useRoute();
+
+  // useState
+  const [contentsName, SetContentsName] = useState<string>('');
+
+  // useEffect
+  useEffect(() => {
+    SetContentsName(route.params?.mode);
+  }, [route]);
+
+  return <Presenter contentsName={contentsName || 'Unsplash'} />;
 }
+export default Container;

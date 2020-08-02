@@ -7,7 +7,8 @@ import Home from './Home';
 import Profile from './Profile';
 import Lab from './Lab';
 import Overview from './Overview';
-import { ico_house, ico_center_focus, ico_mac, ico_account } from '@app/assets';
+import Code from './Code';
+import { ico_house, ico_center_focus, ico_mac, ico_account ,ico_react_native,ico_react_native_color} from '@app/assets';
 
 type Props = {};
 type RouteParamsType = { currentTab?: string };
@@ -36,6 +37,8 @@ function Presenter({  }: Props) {
               return <IconHome source={focused ? ico_mac : ico_mac} />;
             case MENU_NAMES.PROFILE:
               return <IconHome source={focused ? ico_account : ico_account} />;
+              case MENU_NAMES.CODE:
+                return <IconHome source={focused ? ico_react_native_color  : ico_react_native} />;
             default:
               return null;
           }
@@ -58,7 +61,9 @@ function Presenter({  }: Props) {
       <Tab.Screen name={MENU_NAMES.HOME} component={Home} />
       <Tab.Screen name={MENU_NAMES.OVERVIEW} component={Overview} />
       <Tab.Screen name={MENU_NAMES.LAB} component={Lab} />
-      <Tab.Screen name={MENU_NAMES.PROFILE} component={Profile} />
+      <Tab.Screen name={MENU_NAMES.CODE} component={Code} />
+
+      {/* <Tab.Screen name={MENU_NAMES.PROFILE} component={Profile} /> */}
     </Tab.Navigator>
   );
 }
