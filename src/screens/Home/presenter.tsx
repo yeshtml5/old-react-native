@@ -28,7 +28,7 @@ const Presenter = ({ weatherList, positionInfo }: Props) => {
         <TouchableOpacity
           style={styles.button}
           onPress={() => {
-            //     navigation.dispatch(StackActions.push(MENU_NAMES.CODE));
+            navigation.dispatch(StackActions.push(MENU_NAMES.CODE));
             dispatch({ type: 'UPDATE', auth: 'test' });
             //     Alert.alert('code',globalContext)
             console.log(context);

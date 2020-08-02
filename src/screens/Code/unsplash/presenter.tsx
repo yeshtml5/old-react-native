@@ -95,7 +95,7 @@ const Presenter = ({ getNextPageContents, searchQuery, setSearchQuery, unsplashD
         scrollEventThrottle={16}
         onScroll={({ nativeEvent }) => {
           const { contentOffset, layoutMeasurement, contentSize } = nativeEvent;
-          const marginToBottom = 10 + layoutMeasurement.height;
+          const marginToBottom = 2 + layoutMeasurement.height;
           if (contentOffset.y + marginToBottom >= contentSize.height) {
             getNextPageContents();
             scrollViewRef.current.scrollTo({ y: 0, animated: false });

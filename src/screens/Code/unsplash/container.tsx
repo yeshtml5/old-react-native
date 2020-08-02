@@ -12,10 +12,10 @@ const unsplash = new Unsplash({
 
 export default function Container() {
   // const
-  const LIST_COUNT_PER_PAGE = 10;
+  const LIST_COUNT_PER_PAGE = 30;
   // useState
   const [currentPage, setCurrentPage] = useState<number>(1);
-  const [searchQuery, setSearchQuery] = useState('coffee');
+  const [searchQuery, setSearchQuery] = useState('design');
   const [unsplashData, SetUnsplashData] = useState<object | null>(null);
 
   // getNextPage
