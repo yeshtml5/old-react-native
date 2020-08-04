@@ -8,30 +8,22 @@ import { CommonActions, useNavigation } from '@react-navigation/native';
 import { SafeAreaView, View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { MENU_NAMES } from '@app/lib';
-import { useGlobalState } from '@app/contexts';
+import { useGlobalDispatch, useGlobalState } from '@app/contexts';
 
-const StyledButton = styled.TouchableOpacity`
-  width: 50%;
-  margin: 10px auto;
-  padding: 10px;
-  color: #ffffff;
-  background-color: orange;
-  align-items: center;
-`;
-/**
- * @title
- * @desc  HOME
- */
 const Presenter = () => {
   // context
   const context = useGlobalState();
+  const dispatch = useGlobalDispatch();
   const navigation = useNavigation();
   return (
     <SafeAreaView>
       <StyledButton
         onPress={() => {
           console.log(context);
-          Toast.show('HOME');
+          Toast.show(JSON.stringify(context));
+          dispatch({ type: 'UPDATE', 'add-custom': 'Iphone' });
+          return;
+
           navigation.dispatch(
             CommonActions.navigate({
               name: MENU_NAMES.STACK,
@@ -92,7 +84,27 @@ const Presenter = () => {
         }}>
         <Text>Template2</Text>
       </StyledButton>
+      <StyledButton
+        onPress={() => {
+          navigation.dispatch(
+            CommonActions.navigate({
+              name: MENU_NAMES.CODE,
+              params: { mode: 'SwipeGesture' },
+            }),
+          );
+        }}>
+        <Text>CODE -> swipe-gesture</Text>
+      </StyledButton>
     </SafeAreaView>
   );
 };
 export default Presenter;
+
+const StyledButton = styled.TouchableOpacity`
+  width: 50%;
+  margin: 10px auto;
+  padding: 10px;
+  color: #ffffff;
+  background-color: orange;
+  align-items: center;
+`;

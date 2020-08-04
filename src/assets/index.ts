@@ -20,3 +20,5 @@ export const ico_center_focus = require('./images/icon/icon_center_focus.png');
 export const ico_house = require('./images/icon/icon_house.png');
 export const ico_mac = require('./images/icon/icon_mac.png');
 export const ico_account = require('./images/icon/icon_account.png');
+export const ico_react_native = require('./images/icon/icon_react_native.png');
+export const ico_react_native_color = require('./images/icon/icon_react_native_color.png');

@@ -4,8 +4,6 @@
  */
 import React, { createContext, Dispatch, useReducer, useContext } from 'react';
 
-//export type
-//---------------------------------------------------------------------
 //type
 type GlobalState = object | undefined | null;
 type Action =
@@ -13,10 +11,14 @@ type Action =
   | { type: 'UPDATE'; title: string; name: string }
   | { type: 'REMOVE'; title: string | null };
 type GlobalDispatch = Dispatch<Action>;
+type Provider = {
+  children: React.ReactNode;
+};
+
 //context
 const stateContext = createContext<object | undefined>(undefined);
 const dispatchContext = createContext<GlobalDispatch | undefined>(undefined);
-//---------------------------------------------------------------------
+
 /**
  * reducer
  * @param {state}   : object
@@ -31,16 +33,18 @@ function globalReducer(state: GlobalState, action: Action): object {
     case 'REMOVE':
       return {};
     default:
-      throw new Error('Unhandled action');
+      return { state };
+    /**
+     * @see default return or throw Error
+     */
+    //  throw new Error('Unhandled action');
   }
 }
-//---------------------------------------------------------------------
-/**
- *  Provider
- */
-export function GlobalContextProvider({ children }: { children: React.ReactNode }) {
+
+// Provider
+export function GlobalContextProvider({ children }: Provider) {
   const defaultState = {
-    auth: 'sfdkjsdlfj43w43232423',
+    auth: 'default_auth',
   };
   const [state, dispatch] = useReducer(globalReducer, defaultState);
   return (
@@ -49,18 +53,15 @@ export function GlobalContextProvider({ children }: { children: React.ReactNode 
     </dispatchContext.Provider>
   );
 }
-/**
- *  useState
- *
- */
+
+// useState
 export function useGlobalState() {
   const state = useContext(stateContext);
   if (!state) throw new Error('useGlobalState not found');
   return state;
 }
-/**
- *  useDispatch
- */
+
+// useDispatch
 export function useGlobalDispatch() {
   const dispatch = useContext(dispatchContext);
   if (!dispatch) throw new Error('useGlobalDispatch not found');

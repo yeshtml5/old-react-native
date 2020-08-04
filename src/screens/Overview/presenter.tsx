@@ -10,10 +10,9 @@ import {
   StyleSheet,
   Alert,
   PermissionsAndroid,
+  TouchableOpacity,
 } from 'react-native';
 import Geolocation from '@react-native-community/geolocation';
-
-import { TouchableOpacity } from 'react-native-gesture-handler';
 
 const Overview = () => {
   const requestLocationPermission = async () => {
@@ -36,9 +35,9 @@ const Overview = () => {
   useEffect(() => {
     (async () => {
       const result = await requestLocationPermission();
-      console.log(result);
     })();
   }, []);
+
   return (
     <SafeAreaView>
       <TouchableOpacity

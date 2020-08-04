@@ -1,24 +1,18 @@
 import React from 'react';
 import styled from 'styled-components/native';
-import { View, Text, Alert } from 'react-native';
-import { createStackNavigator } from '@react-navigation/stack';
+import { Text } from 'react-native';
 // contents
 import AsyncAwait from './async-await';
 import AsyncStroage from './async-storage';
 import UseForm from './useForm';
 import WebView from './webview';
 import Unsplash from './unsplash';
-
-import { SafeAreaView } from 'react-native-safe-area-context';
+import SwipeGesture from './swipe-gesture';
 
 type Props = {
   contentsName?: string; //컨텐츠메뉴명
 };
 
-const Container = styled.SafeAreaView`
-  flex: 1;
-  background-color: #ffffff;
-`;
 function Presenter({ contentsName }: Props) {
   // 선택된컨턴츠에따라 분기처리해서보여준다
   const displayConents = () => {
@@ -33,8 +27,14 @@ function Presenter({ contentsName }: Props) {
         return <WebView />;
       case 'Unsplash':
         return <Unsplash />;
+      case 'SwipeGesture':
+        return <SwipeGesture />;
       default:
-        return <Text>선택된메뉴가없습니다.</Text>;
+        return (
+          <EmptyContents>
+            <EmptyTitle>선택된메뉴가없습니다.</EmptyTitle>
+          </EmptyContents>
+        );
     }
   };
   return (
@@ -43,5 +43,18 @@ function Presenter({ contentsName }: Props) {
     </React.Fragment>
   );
 }
-
 export default Presenter;
+
+const Container = styled.SafeAreaView`
+  flex: 1;
+  background-color: #ffffff;
+`;
+const EmptyContents = styled.View`
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+`;
+const EmptyTitle = styled.Text`
+  color: #000;
+  font-size: 20;
+`;
