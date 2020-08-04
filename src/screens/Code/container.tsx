@@ -13,7 +13,7 @@ function Container() {
 
   // useState
   const [contentsName, SetContentsName] = useState<string>('');
-
+console.log('test')
   // useEffect
   useEffect(() => {
     SetContentsName(route.params?.mode);

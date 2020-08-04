@@ -33,7 +33,7 @@ const Presenter = ({ weatherList, positionInfo }: Props) => {
             //     Alert.alert('code',globalContext)
             console.log(context);
           }}>
-          <Text>CODE unsplash</Text>
+          <Text>CODE</Text>
         </TouchableOpacity>
         <View>
           <Image

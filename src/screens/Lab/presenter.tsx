@@ -8,8 +8,97 @@ import { CommonActions, useNavigation } from '@react-navigation/native';
 import { SafeAreaView, View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { MENU_NAMES } from '@app/lib';
-import { useGlobalState } from '@app/contexts';
-import GestureRecognizer from 'react-native-swipe-gestures';
+import { useGlobalDispatch, useGlobalState } from '@app/contexts';
+
+const Presenter = () => {
+  // context
+  const context = useGlobalState();
+  const dispatch = useGlobalDispatch();
+  const navigation = useNavigation();
+  return (
+    <SafeAreaView>
+      <StyledButton
+        onPress={() => {
+          console.log(context);
+          Toast.show(JSON.stringify(context));
+          dispatch({ type: 'UPDATE', 'add-custom': 'Iphone' });
+          return;
+
+          navigation.dispatch(
+            CommonActions.navigate({
+              name: MENU_NAMES.STACK,
+            }),
+          );
+        }}>
+        <Text>HOME</Text>
+      </StyledButton>
+
+      <StyledButton
+        onPress={() => {
+          navigation.dispatch(
+            CommonActions.navigate({
+              name: MENU_NAMES.MAIN,
+              params: { currentTab: MENU_NAMES.PROFILE },
+            }),
+          );
+        }}>
+        <Text>프로필-OVERVIEW</Text>
+      </StyledButton>
+      <StyledButton
+        onPress={() => {
+          navigation.dispatch(
+            CommonActions.navigate({
+              name: MENU_NAMES.LAB,
+            }),
+          );
+        }}>
+        <Text>Lab</Text>
+      </StyledButton>
+      <StyledButton
+        onPress={() => {
+          navigation.dispatch(
+            CommonActions.navigate({
+              name: MENU_NAMES.PROFILE,
+            }),
+          );
+        }}>
+        <Text>Profile</Text>
+      </StyledButton>
+      <StyledButton
+        onPress={() => {
+          navigation.dispatch(
+            CommonActions.navigate({
+              name: MENU_NAMES.TEMPLATE1,
+            }),
+          );
+        }}>
+        <Text>Template1</Text>
+      </StyledButton>
+      <StyledButton
+        onPress={() => {
+          navigation.dispatch(
+            CommonActions.navigate({
+              name: MENU_NAMES.TEMPLATE2,
+            }),
+          );
+        }}>
+        <Text>Template2</Text>
+      </StyledButton>
+      <StyledButton
+        onPress={() => {
+          navigation.dispatch(
+            CommonActions.navigate({
+              name: MENU_NAMES.CODE,
+              params: { mode: 'SwipeGesture' },
+            }),
+          );
+        }}>
+        <Text>CODE -> swipe-gesture</Text>
+      </StyledButton>
+    </SafeAreaView>
+  );
+};
+export default Presenter;
 
 const StyledButton = styled.TouchableOpacity`
   width: 50%;
@@ -19,99 +108,3 @@ const StyledButton = styled.TouchableOpacity`
   background-color: orange;
   align-items: center;
 `;
-/**
- * @title
- * @desc  HOME
- */
-const Presenter = () => {
-  // context
-  const context = useGlobalState();
-  const navigation = useNavigation();
-  return (
-    <GestureRecognizer
-      onSwipe={direction => {
-        alert(direction);
-      }}
-      style={{
-        flex: 1,
-      }}>
-      <SafeAreaView>
-        <StyledButton
-          onPress={() => {
-            Toast.show('HOME');
-            navigation.dispatch(
-              CommonActions.navigate({
-                name: MENU_NAMES.STACK,
-              }),
-            );
-          }}>
-          <Text>HOME</Text>
-        </StyledButton>
-
-        <StyledButton
-          onPress={() => {
-            navigation.dispatch(
-              CommonActions.navigate({
-                name: MENU_NAMES.MAIN,
-                params: { currentTab: MENU_NAMES.PROFILE },
-              }),
-            );
-          }}>
-          <Text>프로필-OVERVIEW</Text>
-        </StyledButton>
-        <StyledButton
-          onPress={() => {
-            navigation.dispatch(
-              CommonActions.navigate({
-                name: MENU_NAMES.LAB,
-              }),
-            );
-          }}>
-          <Text>Lab</Text>
-        </StyledButton>
-        <StyledButton
-          onPress={() => {
-            navigation.dispatch(
-              CommonActions.navigate({
-                name: MENU_NAMES.PROFILE,
-              }),
-            );
-          }}>
-          <Text>Profile</Text>
-        </StyledButton>
-        <StyledButton
-          onPress={() => {
-            navigation.dispatch(
-              CommonActions.navigate({
-                name: MENU_NAMES.TEMPLATE1,
-              }),
-            );
-          }}>
-          <Text>Template1</Text>
-        </StyledButton>
-        <StyledButton
-          onPress={() => {
-            navigation.dispatch(
-              CommonActions.navigate({
-                name: MENU_NAMES.TEMPLATE2,
-              }),
-            );
-          }}>
-          <Text>Template2</Text>
-        </StyledButton>
-        <StyledButton
-          onPress={() => {
-            navigation.dispatch(
-              CommonActions.navigate({
-                name: MENU_NAMES.CODE,
-                params: { mode: 'SwipeGesture' },
-              }),
-            );
-          }}>
-          <Text>CODE -> swipe-gesture</Text>
-        </StyledButton>
-      </SafeAreaView>
-    </GestureRecognizer>
-  );
-};
-export default Presenter;
