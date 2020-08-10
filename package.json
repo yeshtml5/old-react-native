@@ -46,8 +46,7 @@
     "react-native-vector-icons": "^6.6.0",
     "react-native-webview": "^10.3.2",
     "react-timer-mixin": "^0.13.4",
-    "styled-components": "^5.1.1",
-    "unstated-next": "^1.1.0"
+    "styled-components": "^5.1.1"
   },
   "devDependencies": {
     "@babel/core": "^7.6.2",
@@ -67,6 +66,7 @@
     "eslint-plugin-import": "^2.22.0",
     "jest": "^24.9.0",
     "metro-react-native-babel-preset": "^0.58.0",
+    "react-native-splash-screen": "^3.2.0",
     "react-native-swipe-gestures": "^1.0.5",
     "react-test-renderer": "16.11.0",
     "typescript": "^3.9.5",

@@ -1,0 +1,23 @@
+{
+  "images" : [
+    {
+      "filename" : "anders-jildén-O85h02qZ24w.jpg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "joel-jasmin-forestbird-506758-unsplash.jpg",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "fancy-crave-22480-unsplash.jpg",
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

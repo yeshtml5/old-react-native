@@ -6,19 +6,21 @@ import React, { useState, useEffect } from 'react';
 import Presenter from './presenter';
 import { useRoute } from '@react-navigation/native';
 
+type RouteParamsType = {
+  mode: string;
+};
 
 function Container() {
-  // route
   const route = useRoute();
+  const [contentsName, SetContentsName] = useState<string | null>(null);
 
-  // useState
-  const [contentsName, SetContentsName] = useState<string>('');
-console.log('test')
-  // useEffect
   useEffect(() => {
-    SetContentsName(route.params?.mode);
+    const { mode } = route.params as RouteParamsType;
+    SetContentsName(mode);
   }, [route]);
 
-  return <Presenter contentsName={contentsName || 'Unsplash'} />;
+  console.log('contentsName ' + contentsName);
+
+  return contentsName !== null && <Presenter contentsName={contentsName || 'Unsplash'} />;
 }
 export default Container;

@@ -11,7 +11,6 @@ type Props = {
 function Presenter({ params }: Props) {
   // stack
   const Stack = createStackNavigator();
-  //console.log(params);
   return (
     <Stack.Navigator screenOptions={STACK_SCREEN_OPTIONS}>
       <Stack.Screen
